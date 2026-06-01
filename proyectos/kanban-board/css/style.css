@@ -1,0 +1,591 @@
+/* ==========================================================================
+   TASKFLOW KANBAN BOARD - DESIGN SYSTEM & VARS
+   ========================================================================== */
+
+:root {
+    --bg-primary: #090b11;
+    --bg-secondary: #111422;
+    --bg-tertiary: #191e33;
+    --bg-glass: rgba(17, 20, 34, 0.8);
+    --border-color: rgba(255, 255, 255, 0.05);
+    
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    
+    --accent: #4f46e5;
+    --accent-hover: #4338ca;
+    --accent-glow: rgba(79, 70, 229, 0.2);
+    
+    /* Column Color Coding */
+    --color-todo: #3b82f6; /* Blue */
+    --color-progress: #f59e0b; /* Orange/Yellow */
+    --color-review: #d946ef; /* Magenta/Purple */
+    --color-done: #10b981; /* Green */
+    
+    /* Priority Colors */
+    --priority-low: #10b981;
+    --priority-low-bg: rgba(16, 185, 129, 0.1);
+    --priority-medium: #f59e0b;
+    --priority-medium-bg: rgba(245, 158, 11, 0.1);
+    --priority-high: #ef4444;
+    --priority-high-bg: rgba(239, 68, 68, 0.1);
+    
+    --font-heading: 'Outfit', 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-full: 9999px;
+    
+    --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+    
+    --header-height: 80px;
+    --max-width: 1200px;
+}
+
+/* ==========================================================================
+   RESET & BASICS
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 95%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+button, input, textarea, select {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+/* Custom Scrollbar for horizontal columns */
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* ==========================================================================
+   HEADER / NAVBAR
+   ========================================================================== */
+
+.board-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 900;
+    display: flex;
+    align-items: center;
+}
+
+.board-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.board-logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    color: var(--accent);
+}
+
+.logo-accent {
+    color: var(--accent);
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    gap: 8px;
+    outline: none;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+}
+
+.btn-block {
+    display: flex;
+    width: 100%;
+}
+
+/* ==========================================================================
+   KANBAN BOARD GRID & COLUMNS
+   ========================================================================== */
+
+.board-main {
+    padding-top: calc(var(--header-height) + 40px);
+    padding-bottom: 60px;
+    min-height: 85vh;
+}
+
+.board-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.board-column {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    border-bottom: 2px solid transparent;
+}
+
+.column-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.column-badge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Color Coding Borders & Badges */
+.border-todo { border-color: var(--color-todo); }
+.badge-todo { background-color: var(--color-todo); color: #ffffff; }
+
+.border-progress { border-color: var(--color-progress); }
+.badge-progress { background-color: var(--color-progress); color: #000000; }
+
+.border-review { border-color: var(--color-review); }
+.badge-review { background-color: var(--color-review); color: #ffffff; }
+
+.border-done { border-color: var(--color-done); }
+.badge-done { background-color: var(--color-done); color: #ffffff; }
+
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex-grow: 1;
+}
+
+/* ==========================================================================
+   KANBAN CARD STYLING
+   ========================================================================== */
+
+.task-card {
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Color coding borders based on priorities */
+.task-card.priority-low-border { border-left: 4px solid var(--priority-low); }
+.task-card.priority-medium-border { border-left: 4px solid var(--priority-medium); }
+.task-card.priority-high-border { border-left: 4px solid var(--priority-high); }
+
+.card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.card-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+.card-priority-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+}
+
+.card-priority-tag.low { background-color: var(--priority-low-bg); color: var(--priority-low); }
+.card-priority-tag.medium { background-color: var(--priority-medium-bg); color: var(--priority-medium); }
+.card-priority-tag.high { background-color: var(--priority-high-bg); color: var(--priority-high); }
+
+.card-description {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    word-break: break-word;
+    line-height: 1.5;
+}
+
+.card-footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 12px;
+    gap: 10px;
+}
+
+.card-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.card-actions-wrapper {
+    display: flex;
+    gap: 6px;
+}
+
+/* Mini action buttons */
+.card-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.8rem;
+}
+
+.card-btn:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+}
+
+.card-btn.btn-delete:hover {
+    color: var(--priority-high);
+    background-color: var(--priority-high-bg);
+}
+
+.card-btn.btn-edit:hover {
+    color: var(--color-todo);
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* Click-to-Move Controls styling */
+.card-nav-controls {
+    display: flex;
+    gap: 4px;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    padding-left: 8px;
+}
+
+.card-nav-btn {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    width: 26px;
+    height: 26px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.7rem;
+    transition: all 0.2s ease;
+}
+
+.card-nav-btn:hover:not(:disabled) {
+    background-color: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+}
+
+.card-nav-btn:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   MODAL WINDOW (CREATE / EDIT TASK)
+   ========================================================================== */
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(4, 5, 11, 0.85);
+    backdrop-filter: blur(6px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition), visibility var(--transition);
+}
+
+.modal-backdrop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.board-modal {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    width: 90%;
+    max-width: 480px;
+    padding: 36px;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    transform: scale(0.92);
+    transition: transform var(--transition);
+}
+
+.modal-backdrop.show .board-modal {
+    transform: scale(1);
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-modal-btn:hover {
+    color: #ffffff;
+}
+
+.modal-header-content {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.modal-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.modal-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.form-control {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: var(--accent);
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-error {
+    color: var(--priority-high);
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: none;
+}
+
+.form-control.invalid {
+    border-color: var(--priority-high);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.board-footer {
+    background-color: var(--bg-primary);
+    border-top: 1px solid var(--border-color);
+    padding: 30px 0;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (MEDIA QUERIES)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .board-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .board-column {
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .board-header {
+        height: 70px;
+    }
+    
+    .board-main {
+        padding-top: 100px;
+    }
+    
+    .board-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .board-column {
+        min-height: 250px;
+    }
+    
+    .board-modal {
+        padding: 24px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}

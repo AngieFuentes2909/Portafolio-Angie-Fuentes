@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopHub | Catálogo de Gadgets Premium</title>
+    <meta name="description" content="ShopHub - Catálogo interactivo de dispositivos y gadgets premium con filtros avanzados en tiempo real y carrito de compras dinámico.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Estilos -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="light-theme">
+
+    <!-- Header / Navbar -->
+    <header class="shop-header">
+        <div class="container shop-header-container">
+            <a href="#" class="shop-logo">
+                <i class="fa-solid fa-bolt logo-accent"></i> Shop<span class="logo-bold">Hub</span>
+            </a>
+            
+            <!-- Real-time Search Input -->
+            <div class="search-bar-container">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="product-search" class="search-input" placeholder="Buscar gadgets, audífonos, relojes...">
+            </div>
+
+            <!-- Cart Trigger Button -->
+            <button class="cart-trigger" id="cart-toggle" aria-label="Abrir carrito de compras">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-badge" id="cart-counter">0</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="shop-main">
+        <div class="container shop-grid-layout">
+            
+            <!-- Sidebar Filters -->
+            <aside class="filters-sidebar">
+                <div class="sidebar-header">
+                    <h3>Filtros de Búsqueda</h3>
+                    <button class="reset-filters-btn" id="btn-reset-filters">Limpiar todo</button>
+                </div>
+                
+                <!-- Category Filter -->
+                <div class="filter-group">
+                    <h4 class="filter-title">Categorías</h4>
+                    <ul class="category-list" id="category-filter-list">
+                        <li class="category-item active" data-category="all">Todos los Productos</li>
+                        <li class="category-item" data-category="audio">Audio & Sonido</li>
+                        <li class="category-item" data-category="wearables">Wearables & Smartwatches</li>
+                        <li class="category-item" data-category="hogar">Smart Home / Hogar</li>
+                        <li class="category-item" data-category="tecnologia">Accesorios Tech</li>
+                    </ul>
+                </div>
+
+                <!-- Price Range Filter -->
+                <div class="filter-group">
+                    <h4 class="filter-title">Rango de Precio</h4>
+                    <div class="price-range-wrapper">
+                        <input type="range" id="price-slider" class="price-slider" min="10" max="300" value="300">
+                        <div class="price-labels">
+                            <span>$10</span>
+                            <span>Máx: <strong class="text-accent" id="slider-price-val">$300</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sort Order Filter -->
+                <div class="filter-group">
+                    <h4 class="filter-title">Ordenar Por</h4>
+                    <select id="sort-order" class="sort-select">
+                        <option value="default">Recomendados</option>
+                        <option value="price-asc">Precio: Bajo a Alto</option>
+                        <option value="price-desc">Precio: Alto a Bajo</option>
+                    </select>
+                </div>
+            </aside>
+
+            <!-- Products Listing Grid -->
+            <section class="products-section-container">
+                <div class="products-grid-header">
+                    <p class="results-count" id="results-count">Mostrando 8 productos</p>
+                </div>
+                
+                <!-- jQuery will dynamically render cards, but we include initial semantic HTML cards for SEO -->
+                <div class="products-grid" id="products-catalog">
+                    <!-- Products will be dynamically populated/filtered by jQuery JS -->
+                </div>
+                
+                <!-- No Results Alert -->
+                <div class="no-results" id="no-results-message">
+                    <i class="fa-solid fa-magnifying-glass no-results-icon"></i>
+                    <h3>No se encontraron productos</h3>
+                    <p>Intenta modificar los filtros seleccionados o tu criterio de búsqueda.</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Mini-Cart Sidebar Drawer -->
+    <div class="cart-backdrop" id="cart-drawer-backdrop">
+        <aside class="cart-drawer">
+            <div class="cart-drawer-header">
+                <h3>Tu Carrito (<span id="cart-total-qty">0</span>)</h3>
+                <button class="close-cart-btn" id="close-cart" aria-label="Cerrar carrito"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <!-- Cart Items Container -->
+            <div class="cart-items-container" id="cart-items-wrapper">
+                <!-- Items dynamically added with jQuery -->
+            </div>
+            
+            <!-- Empty Cart Message -->
+            <div class="cart-empty-state" id="cart-empty-state">
+                <i class="fa-solid fa-basket-shopping empty-icon"></i>
+                <p>Tu carrito está vacío</p>
+                <button class="btn btn-primary" id="btn-start-shopping">Explorar Catálogo</button>
+            </div>
+
+            <!-- Cart Footer (Calculations & Checkout) -->
+            <div class="cart-drawer-footer" id="cart-summary-footer">
+                <div class="summary-line">
+                    <span>Subtotal</span>
+                    <span class="summary-value" id="cart-subtotal">$0.00</span>
+                </div>
+                <div class="summary-line">
+                    <span>Envío</span>
+                    <span class="summary-value text-green">Gratis</span>
+                </div>
+                <hr class="summary-divider">
+                <div class="summary-line total-line">
+                    <span>Total</span>
+                    <span class="summary-value total-val" id="cart-total">$0.00</span>
+                </div>
+                
+                <button class="btn btn-primary btn-block checkout-btn" id="checkout-btn">
+                    Proceder al Pago <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Successful Purchase Dialog Modal -->
+    <div class="modal-backdrop" id="checkout-modal">
+        <div class="success-modal">
+            <i class="fa-solid fa-circle-check success-modal-icon"></i>
+            <h2>¡Compra Completada!</h2>
+            <p>Tu orden ha sido procesada de manera exitosa. Recibirás un correo con el detalle del envío en breve.</p>
+            <button class="btn btn-primary" id="success-close-btn">Aceptar</button>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/app.js"></script>
+</body>
+</html>

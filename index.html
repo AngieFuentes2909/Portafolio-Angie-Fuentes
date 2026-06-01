@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Profesional | Maquetador Web & Frontend Developer</title>
+    <meta name="description" content="Portafolio profesional de maquetación web y desarrollo frontend. Especialista en HTML5, CSS3, JavaScript y jQuery. Diseños responsive, semánticos e interactivos.">
+    <meta name="keywords" content="maquetador web, frontend developer, HTML, CSS, JS, jQuery, responsive design, portafolio">
+    <meta name="author" content="Angie">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="dark-theme">
+    
+    <!-- Header / Navbar -->
+    <header class="site-header" id="site-header">
+        <div class="container header-container">
+            <a href="#" class="logo" id="logo-brand">
+                <span class="logo-accent">&lt;</span>Angie<span class="logo-accent">/&gt;</span>
+            </a>
+            
+            <nav class="main-nav" id="main-navigation">
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#hero" class="nav-link active">Inicio</a></li>
+                    <li><a href="#about" class="nav-link">Sobre Mí</a></li>
+                    <li><a href="#skills" class="nav-link">Habilidades</a></li>
+                    <li><a href="#projects" class="nav-link">Proyectos</a></li>
+                    <li><a href="#experience" class="nav-link">Experiencia</a></li>
+                    <li><a href="#contact" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Cambiar tema de color">
+                    <i class="fa-solid fa-moon moon-icon"></i>
+                    <i class="fa-solid fa-sun sun-icon"></i>
+                </button>
+                <button class="mobile-nav-toggle" id="menu-toggle-btn" aria-label="Abrir menú de navegación">
+                    <i class="fa-solid fa-bars open-icon"></i>
+                    <i class="fa-solid fa-xmark close-icon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="hero-bg-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+            </div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="badge" id="hero-badge">Disponible para trabajar</div>
+                    <h1 class="hero-title" id="main-hero-title">
+                        Maquetador Web <span class="gradient-text">Profesional</span> & Frontend Developer
+                    </h1>
+                    <p class="hero-lead">
+                        Especializado en transformar diseños complejos en interfaces web semánticas, de alta fidelidad, adaptables (responsive) y altamente interactivas con HTML, CSS, JavaScript y jQuery.
+                    </p>
+                    <div class="hero-cta-group">
+                        <a href="#projects" class="btn btn-primary" id="cta-view-projects">
+                            Ver Proyectos <i class="fa-solid fa-arrow-down btn-icon"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary" id="cta-contact-me">
+                            Contactar <i class="fa-solid fa-paper-plane btn-icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="code-window">
+                        <div class="code-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="window-title">skills.js</span>
+                        </div>
+                        <div class="code-body">
+                            <pre><code><span class="keyword">const</span> developer = {
+  name: <span class="string">'Angie'</span>,
+  role: <span class="string">'Web Layout Designer'</span>,
+  skills: [
+    <span class="string">'HTML5 Semántico'</span>,
+    <span class="string">'CSS3 Avanzado / Flexbox & Grid'</span>,
+    <span class="string">'JavaScript Moderno (ES6+)'</span>,
+    <span class="string">'jQuery / Efectos & DOM'</span>,
+    <span class="string">'Responsive Design'</span>
+  ],
+  passion: <span class="string">'Interactividad y Estética Pixel Perfect'</span>
+};
+
+<span class="comment">// Animaciones y efectos fluidos</span>
+$(<span class="string">'.interface'</span>).fadeIn(<span class="number">600</span>);</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section class="about-section section-padding" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Presentación</span>
+                    <h2 class="section-title">Sobre Mí</h2>
+                </div>
+                <div class="about-grid">
+                    <div class="about-info">
+                        <p class="about-text">
+                            Soy una desarrolladora apasionada por la maquetación web y el diseño de interacción. Me especializo en crear la estructura (HTML) y la presentación (CSS) perfectas, garantizando accesibilidad, rendimiento óptimo y un diseño responsive impecable para cualquier dispositivo.
+                        </p>
+                        <p class="about-text">
+                            A través de JavaScript y jQuery, aporto dinamismo y lógica de negocio a la interfaz, creando elementos interactivos como carruseles, filtrado en tiempo real, menús interactivos, formularios validados y transiciones suaves que mejoran de manera notable la experiencia de usuario (UX).
+                        </p>
+                        <div class="personal-details">
+                            <div class="detail-item">
+                                <i class="fa-solid fa-location-dot detail-icon"></i>
+                                <span><strong>Ubicación:</strong> Colombia (Remoto / Híbrido)</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fa-solid fa-briefcase detail-icon"></i>
+                                <span><strong>Experiencia:</strong> Académica y Profesional Independiente</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fa-solid fa-graduation-cap detail-icon"></i>
+                                <span><strong>Estudios:</strong> Desarrollo de Software & Diseño Web</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <h3 class="stat-number">4+</h3>
+                            <p class="stat-label">Proyectos Demostrativos</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 class="stat-number">100%</h3>
+                            <p class="stat-label">Responsive & Semántico</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 class="stat-number">Pixel</h3>
+                            <p class="stat-label">Perfect Standard</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 class="stat-number">Clean</h3>
+                            <p class="stat-label">Code & Git Ready</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Habilidades Section -->
+        <section class="skills-section section-padding" id="skills">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Tecnologías y Enfoque</span>
+                    <h2 class="section-title">Habilidades Técnicas</h2>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category-card">
+                        <div class="card-icon"><i class="fa-brands fa-html5"></i></div>
+                        <h3 class="card-title">HTML5 Semántico</h3>
+                        <p class="card-desc">Construcción de estructuras lógicas sólidas, con enfoque en accesibilidad (WAI-ARIA), optimización SEO on-page y marcado limpio.</p>
+                        <ul class="skills-list">
+                            <li><i class="fa-solid fa-check text-accent"></i> Estructura HTML5 Semántica</li>
+                            <li><i class="fa-solid fa-check text-accent"></i> Accesibilidad Web & ARIA</li>
+                            <li><i class="fa-solid fa-check text-accent"></i> SEO Técnico & Meta Tags</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category-card">
+                        <div class="card-icon"><i class="fa-brands fa-css3-alt"></i></div>
+                        <h3 class="card-title">CSS3 & Diseño Adaptable</h3>
+                        <p class="card-desc">Diseños robustos, dinámicos e impecables con Flexbox y CSS Grid. Manejo avanzado de variables de CSS, keyframes y media queries.</p>
+                        <ul class="skills-list">
+                            <li><i class="fa-solid fa-check text-accent"></i> Flexbox & CSS Grid Layouts</li>
+                            <li><i class="fa-solid fa-check text-accent"></i> Variables CSS & Temas Dinámicos</li>
+                            <li><i class="fa-solid fa-check text-accent"></i> Transiciones & Keyframes CSS</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category-card">
+                        <div class="card-icon"><i class="fa-brands fa-js"></i></div>
+                        <h3 class="card-title">JS & jQuery interactivo</h3>
+                        <p class="card-desc">Interactividad avanzada mediante manipulación dinámica del DOM, AJAX, persistencia de datos (LocalStorage) y librerías clave.</p>
+                        <ul class="skills-list">
+                            <li><i class="fa-solid fa-check text-accent"></i> Manipulación del DOM</li>
+                            <li><i class="fa-solid fa-check text-accent"></i> jQuery (Efectos, AJAX, Toggles)</li>
+                            <li><i class="fa-solid fa-check text-accent"></i> Almacenamiento Local (LocalStorage)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Showcase Section -->
+        <section class="projects-section section-padding" id="projects">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Mis Trabajos</span>
+                    <h2 class="section-title">Proyectos Demostrativos</h2>
+                    <p class="section-intro">
+                        Una selección de proyectos creados específicamente para demostrar destreza en maquetación, interactividad de interfaz y buenas prácticas con HTML, CSS, JS y jQuery.
+                    </p>
+                </div>
+
+                <!-- Project Filters (jQuery Powered) -->
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all" id="filter-all">Todos</button>
+                    <button class="filter-btn" data-filter="jquery" id="filter-jquery">jQuery Especializado</button>
+                    <button class="filter-btn" data-filter="layout" id="filter-layout">Maquetación Avanzada</button>
+                    <button class="filter-btn" data-filter="application" id="filter-application">Aplicaciones Web</button>
+                </div>
+
+                <div class="projects-grid" id="projects-grid">
+                    
+                    <!-- Project 1: AI SaaS Landing Page -->
+                    <article class="project-card" data-category="layout jquery">
+                        <div class="project-img-wrapper">
+                            <div class="project-tag">SaaS Landing</div>
+                            <div class="project-placeholder-img visual-gradient-saas">
+                                <i class="fa-solid fa-chart-line card-visual-icon"></i>
+                                <span class="placeholder-text">Fintech AI</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Fintech AI SaaS Landing Page</h3>
+                            <p class="project-desc">
+                                Landing page de alta fidelidad estética con selector mensual/anual de precios animado, carrusel de testimonios interactivo y sección FAQ tipo acordeón desarrollada con jQuery.
+                            </p>
+                            <div class="project-tech-tags">
+                                <span>HTML5</span>
+                                <span>CSS3 Grid</span>
+                                <span>jQuery</span>
+                                <span>SVG</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="proyectos/saas-landing/index.html" class="btn-project btn-view" target="_blank">
+                                    Ver Demo Live <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2: E-Commerce Product Hub -->
+                    <article class="project-card" data-category="jquery application">
+                        <div class="project-img-wrapper">
+                            <div class="project-tag">E-Commerce</div>
+                            <div class="project-placeholder-img visual-gradient-ecommerce">
+                                <i class="fa-solid fa-bag-shopping card-visual-icon"></i>
+                                <span class="placeholder-text">ShopHub</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">ShopHub: Catálogo & Carrito</h3>
+                            <p class="project-desc">
+                                Catálogo digital interactivo con barra lateral de filtrado en tiempo real por búsqueda y categorías. Incluye un carrito de compras dinámico colapsable con suma automática de totales.
+                            </p>
+                            <div class="project-tech-tags">
+                                <span>HTML5</span>
+                                <span>CSS Flexbox</span>
+                                <span>jQuery</span>
+                                <span>DOM Manipulation</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="proyectos/ecommerce-hub/index.html" class="btn-project btn-view" target="_blank">
+                                    Ver Demo Live <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3: Kanban Board -->
+                    <article class="project-card" data-category="application jquery">
+                        <div class="project-img-wrapper">
+                            <div class="project-tag">Productividad</div>
+                            <div class="project-placeholder-img visual-gradient-kanban">
+                                <i class="fa-solid fa-table-columns card-visual-icon"></i>
+                                <span class="placeholder-text">TaskFlow</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">TaskFlow: Tablero Kanban</h3>
+                            <p class="project-desc">
+                                Aplicación para la gestión de tareas tipo Trello. Permite crear tarjetas de tareas, categorizar por prioridad, moverlas entre columnas mediante controles interactivos y persistir datos con LocalStorage.
+                            </p>
+                            <div class="project-tech-tags">
+                                <span>HTML5</span>
+                                <span>CSS Variables</span>
+                                <span>jQuery</span>
+                                <span>LocalStorage</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="proyectos/kanban-board/index.html" class="btn-project btn-view" target="_blank">
+                                    Ver Demo Live <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Experiencia / Educación Section -->
+        <section class="experience-section section-padding" id="experience">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Trayectoria</span>
+                    <h2 class="section-title">Experiencia y Formación</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2025 - Presente</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Desarrolladora Frontend & Maquetadora Independiente</h3>
+                            <p class="timeline-org">Freelance / Proyectos Personales</p>
+                            <p class="timeline-desc">
+                                Creación de prototipos funcionales y maquetación web responsiva para clientes independientes. Implementación de código semántico y optimización en motores de búsqueda, usando vanilla JS y jQuery para dinamizar vistas complejas de usuario.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2024 - 2025</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Especialización en Maquetación e Interacción Frontend</h3>
+                            <p class="timeline-org">Formación y Proyectos Académicos Avanzados</p>
+                            <p class="timeline-desc">
+                                Enfoque intensivo en diseño adaptable (Mobile-First), optimización de rendimiento en CSS, accesibilidad WCAG, animaciones complejas y desarrollo de módulos interactivos dinámicos de cliente sin frameworks.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Curso Profesional de HTML5, CSS3 y JavaScript</h3>
+                            <p class="timeline-org">Certificaciones Tecnológicas</p>
+                            <p class="timeline-desc">
+                                Fundamentos robustos de estructuración web, modelo de caja, posicionamiento avanzado (Flexbox, Grid), maquetación estática pixel-perfect y programación básica del lado del cliente.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section section-padding" id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">¿Hablamos?</span>
+                    <h2 class="section-title">Contacto</h2>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info-panel">
+                        <h3 class="contact-info-title">¡Trabajemos juntos!</h3>
+                        <p class="contact-info-desc">
+                            Si estás buscando una persona meticulosa que domine HTML, CSS, JavaScript y jQuery, que respete los estándares web, ame la interactividad fluida y escriba código modular, ¡estoy disponible!
+                        </p>
+                        
+                        <div class="contact-methods">
+                            <div class="method-item">
+                                <div class="method-icon"><i class="fa-solid fa-envelope"></i></div>
+                                <div>
+                                    <h4 class="method-label">Correo Electrónico</h4>
+                                    <a href="mailto:angie@example.com" class="method-link">angie@example.com</a>
+                                </div>
+                            </div>
+                            <div class="method-item">
+                                <div class="method-icon"><i class="fa-solid fa-phone"></i></div>
+                                <div>
+                                    <h4 class="method-label">Teléfono</h4>
+                                    <a href="tel:+573000000000" class="method-link">+57 300 000 0000</a>
+                                </div>
+                            </div>
+                            <div class="method-item">
+                                <div class="method-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <div>
+                                    <h4 class="method-label">Ubicación</h4>
+                                    <span class="method-text">Colombia (Disponible para Remoto)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-panel">
+                        <!-- jQuery Validated Form -->
+                        <form id="portfolio-contact-form" class="contact-form" novalidate>
+                            <div class="form-group">
+                                <label for="form-name">Nombre Completo</label>
+                                <input type="text" id="form-name" name="name" class="form-control" placeholder="Ej. Juan Pérez" required>
+                                <span class="error-msg" id="name-error">El nombre es obligatorio (mínimo 3 letras).</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="form-email">Correo Electrónico</label>
+                                <input type="email" id="form-email" name="email" class="form-control" placeholder="Ej. juan@correo.com" required>
+                                <span class="error-msg" id="email-error">Ingrese un correo electrónico válido.</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="form-subject">Asunto</label>
+                                <input type="text" id="form-subject" name="subject" class="form-control" placeholder="Ej. Vacante de Maquetador Web" required>
+                                <span class="error-msg" id="subject-error">El asunto es obligatorio.</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="form-message">Mensaje</label>
+                                <textarea id="form-message" name="message" class="form-control" rows="5" placeholder="Escribe aquí tu mensaje..." required></textarea>
+                                <span class="error-msg" id="message-error">El mensaje no puede estar vacío (mínimo 10 caracteres).</span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block" id="form-submit-btn">
+                                Enviar Mensaje <i class="fa-solid fa-paper-plane btn-icon"></i>
+                            </button>
+                            
+                            <div class="form-status-alert success" id="form-status-success">
+                                <i class="fa-solid fa-circle-check alert-icon"></i>
+                                Mensaje enviado exitosamente. ¡Gracias por contactarme!
+                            </div>
+                            
+                            <div class="form-status-alert error" id="form-status-error">
+                                <i class="fa-solid fa-circle-xmark alert-icon"></i>
+                                Por favor corrija los errores en el formulario antes de enviar.
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <p class="copyright">
+                &copy; 2026 Angie. Todos los derechos reservados. Diseñado y maquetado con HTML, CSS, JS y jQuery.
+            </p>
+            <div class="footer-socials">
+                <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://codepen.io" target="_blank" aria-label="CodePen"><i class="fa-brands fa-codepen"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
