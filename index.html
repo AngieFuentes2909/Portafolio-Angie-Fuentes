@@ -411,79 +411,37 @@ $(<span class="string">'.portfolio'</span>).ready(showExperience);</code></pre>
                     <span class="section-subtitle">¿Hablamos?</span>
                     <h2 class="section-title">Contacto</h2>
                 </div>
-                <div class="contact-grid">
-                    <div class="contact-info-panel">
-                        <h3 class="contact-info-title">¡Trabajemos juntos!</h3>
-                        <p class="contact-info-desc">
+                
+                <div class="contact-single-container" style="max-width: 600px; margin: 0 auto; text-align: center;">
+                    <div class="contact-info-panel" style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 40px; box-shadow: var(--shadow-md); text-align: center;">
+                        <h3 class="contact-info-title" style="margin-bottom: 16px; font-size: 1.8rem; font-weight: 700;">¡Trabajemos juntos!</h3>
+                        <p class="contact-info-desc" style="color: var(--text-secondary); margin-bottom: 30px; font-size: 1rem; line-height: 1.6;">
                             Si estás buscando una persona meticulosa que domine HTML, CSS, JavaScript y jQuery, que comprenda la lógica de backend mediante Python y bases de datos SQL, y que posea una fuerte capacidad analítica orientada a resolver problemas, ¡estoy disponible!
                         </p>
                         
-                        <div class="contact-methods">
-                            <div class="method-item">
-                                <div class="method-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-methods" style="display: inline-flex; flex-direction: column; gap: 24px; text-align: left; width: 100%; max-width: 380px; margin: 0 auto;">
+                            <div class="method-item" style="display: flex; align-items: center; gap: 16px;">
+                                <div class="method-icon" style="width: 48px; height: 48px; background-color: var(--bg-primary); border: 1px solid var(--border-color); color: var(--accent-color); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;"><i class="fa-solid fa-envelope"></i></div>
                                 <div>
-                                    <h4 class="method-label">Correo Electrónico</h4>
-                                    <a href="mailto:angiesarayfuentescarreno@gmail.com" class="method-link">angiesarayfuentescarreno@gmail.com</a>
+                                    <h4 class="method-label" style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; letter-spacing: 1px; margin-bottom: 2px;">Correo Electrónico</h4>
+                                    <a href="mailto:angiesarayfuentescarreno@gmail.com" class="method-link" style="font-size: 1.05rem; font-weight: 600; transition: color var(--transition-fast);">angiesarayfuentescarreno@gmail.com</a>
                                 </div>
                             </div>
-                            <div class="method-item">
-                                <div class="method-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="method-item" style="display: flex; align-items: center; gap: 16px;">
+                                <div class="method-icon" style="width: 48px; height: 48px; background-color: var(--bg-primary); border: 1px solid var(--border-color); color: var(--accent-color); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;"><i class="fa-solid fa-phone"></i></div>
                                 <div>
-                                    <h4 class="method-label">Teléfono</h4>
-                                    <a href="tel:+573208661340" class="method-link">+57 320 866 1340</a>
+                                    <h4 class="method-label" style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; letter-spacing: 1px; margin-bottom: 2px;">Teléfono</h4>
+                                    <a href="tel:+573208661340" class="method-link" style="font-size: 1.05rem; font-weight: 600; transition: color var(--transition-fast);">+57 320 866 1340</a>
                                 </div>
                             </div>
-                            <div class="method-item">
-                                <div class="method-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="method-item" style="display: flex; align-items: center; gap: 16px;">
+                                <div class="method-icon" style="width: 48px; height: 48px; background-color: var(--bg-primary); border: 1px solid var(--border-color); color: var(--accent-color); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;"><i class="fa-solid fa-location-dot"></i></div>
                                 <div>
-                                    <h4 class="method-label">Ubicación</h4>
-                                    <span class="method-text">Barranquilla, Colombia (Disponible para Híbrido / Remoto)</span>
+                                    <h4 class="method-label" style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; letter-spacing: 1px; margin-bottom: 2px;">Ubicación</h4>
+                                    <span class="method-text" style="font-size: 1.05rem; font-weight: 600;">Barranquilla, Colombia (Híbrido / Remoto)</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="contact-form-panel">
-                        <!-- jQuery Validated Form -->
-                        <form id="portfolio-contact-form" class="contact-form" novalidate>
-                            <div class="form-group">
-                                <label for="form-name">Nombre Completo</label>
-                                <input type="text" id="form-name" name="name" class="form-control" placeholder="Ej. Juan Pérez" required>
-                                <span class="error-msg" id="name-error">El nombre es obligatorio (mínimo 3 letras).</span>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="form-email">Correo Electrónico</label>
-                                <input type="email" id="form-email" name="email" class="form-control" placeholder="Ej. juan@correo.com" required>
-                                <span class="error-msg" id="email-error">Ingrese un correo electrónico válido.</span>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="form-subject">Asunto</label>
-                                <input type="text" id="form-subject" name="subject" class="form-control" placeholder="Ej. Vacante de Maquetador Web" required>
-                                <span class="error-msg" id="subject-error">El asunto es obligatorio.</span>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="form-message">Mensaje</label>
-                                <textarea id="form-message" name="message" class="form-control" rows="5" placeholder="Escribe aquí tu mensaje..." required></textarea>
-                                <span class="error-msg" id="message-error">El mensaje no puede estar vacío (mínimo 10 caracteres).</span>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary btn-block" id="form-submit-btn">
-                                Enviar Mensaje <i class="fa-solid fa-paper-plane btn-icon"></i>
-                            </button>
-                            
-                            <div class="form-status-alert success" id="form-status-success">
-                                <i class="fa-solid fa-circle-check alert-icon"></i>
-                                Mensaje enviado exitosamente. ¡Gracias por contactarme!
-                            </div>
-                            
-                            <div class="form-status-alert error" id="form-status-error">
-                                <i class="fa-solid fa-circle-xmark alert-icon"></i>
-                                Por favor corrija los errores en el formulario antes de enviar.
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -494,7 +452,7 @@ $(<span class="string">'.portfolio'</span>).ready(showExperience);</code></pre>
     <footer class="site-footer">
         <div class="container footer-container">
             <p class="copyright">
-                &copy; 2026 Angie Saray Fuentes Carreño. Todos los derechos reservados. Diseñado y maquetado con HTML, CSS, JS y jQuery.
+                Angie Saray Fuentes Carreño
             </p>
             <div class="footer-socials">
                 <a href="https://github.com/AngieFuentes2909" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
