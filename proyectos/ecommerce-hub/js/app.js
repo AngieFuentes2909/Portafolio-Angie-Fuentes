@@ -1,100 +1,100 @@
 /**
- * ShopHub - E-Commerce interactive catalog & shopping cart (jQuery)
+ * Ferretería Ferremar - Catálogo Interactivo & Carrito de Pedidos (jQuery)
  */
 
 $(document).ready(function() {
 
     /* ==========================================================================
-       1. CATÁLOGO DE PRODUCTOS (EN MEMORIA)
+       1. CATÁLOGO DE PRODUCTOS DE FERRETERÍA (EN MEMORIA)
        ========================================================================== */
     const products = [
         {
             id: 1,
-            name: "Auriculares Inalámbricos Pro",
-            category: "audio",
-            price: 129,
+            name: "Taladro Percutor Profesional 650W",
+            category: "herramientas",
+            price: 89,
             oldPrice: null,
             rating: 4.8,
             reviews: 145,
-            icon: "fa-headphones",
-            tag: "Premium Sound"
+            icon: "fa-screwdriver-wrench",
+            tag: "2 Años de Garantía"
         },
         {
             id: 2,
-            name: "Smartwatch Active 4",
-            category: "wearables",
-            price: 199,
-            oldPrice: 249,
-            rating: 4.7,
-            reviews: 98,
-            icon: "fa-stopwatch-20",
-            tag: "Deporte"
-        },
-        {
-            id: 3,
-            name: "Bocina Inteligente Home",
-            category: "hogar",
-            price: 89,
-            oldPrice: null,
-            rating: 4.5,
-            reviews: 212,
-            icon: "fa-circle-dot",
-            tag: "Smart Home"
-        },
-        {
-            id: 4,
-            name: "Cargador Rápido GaN 65W",
-            category: "tecnologia",
-            price: 39,
-            oldPrice: 49,
-            rating: 4.9,
-            reviews: 320,
-            icon: "fa-bolt-lightning",
-            tag: "Carga Rápida"
-        },
-        {
-            id: 5,
-            name: "Audífonos Over-Ear ANC",
-            category: "audio",
-            price: 249,
-            oldPrice: 299,
-            rating: 4.6,
-            reviews: 78,
-            icon: "fa-headphones-simple",
-            tag: "Noise Cancelling"
-        },
-        {
-            id: 6,
-            name: "Smart Band Fit",
-            category: "wearables",
-            price: 49,
-            oldPrice: null,
-            rating: 4.3,
-            reviews: 165,
-            icon: "fa-heart-pulse",
-            tag: "Salud"
-        },
-        {
-            id: 7,
-            name: "Foco Inteligente RGB",
-            category: "hogar",
-            price: 29,
-            oldPrice: null,
-            rating: 4.4,
-            reviews: 87,
-            icon: "fa-lightbulb",
-            tag: "RGB Light"
-        },
-        {
-            id: 8,
-            name: "Hub USB-C 8 en 1",
-            category: "tecnologia",
+            name: "Rollo Cable de Cobre #12 (100m)",
+            category: "electricidad",
             price: 59,
             oldPrice: 79,
             rating: 4.7,
-            reviews: 114,
+            reviews: 98,
+            icon: "fa-bolt-lightning",
+            tag: "Certificado RETIE"
+        },
+        {
+            id: 3,
+            name: "Bolsa de Cemento Estructural 50kg",
+            category: "construccion",
+            price: 15,
+            oldPrice: null,
+            rating: 4.5,
+            reviews: 212,
+            icon: "fa-cubes",
+            tag: "Alta Resistencia"
+        },
+        {
+            id: 4,
+            name: "Tubo de Presión PVC 1/2 (6 metros)",
+            category: "plomeria",
+            price: 9,
+            oldPrice: 12,
+            rating: 4.9,
+            reviews: 320,
+            icon: "fa-lines-leaning",
+            tag: "RDE 21 Calidad"
+        },
+        {
+            id: 5,
+            name: "Reflector LED Exterior Smart 100W",
+            category: "electricidad",
+            price: 29,
+            oldPrice: 39,
+            rating: 4.6,
+            reviews: 78,
+            icon: "fa-lightbulb",
+            tag: "IP66 Impermeable"
+        },
+        {
+            id: 6,
+            name: "Juego de Llaves Inglesas (6 pzas)",
+            category: "herramientas",
+            price: 45,
+            oldPrice: null,
+            rating: 4.3,
+            reviews: 165,
+            icon: "fa-wrench",
+            tag: "Acero Cromo Vanadio"
+        },
+        {
+            id: 7,
+            name: "Interruptor Inteligente Wifi 3 Teclas",
+            category: "electricidad",
+            price: 19,
+            oldPrice: null,
+            rating: 4.4,
+            reviews: 87,
             icon: "fa-network-wired",
-            tag: "Conectividad"
+            tag: "Smart Home"
+        },
+        {
+            id: 8,
+            name: "Grifería Mezcladora para Lavamanos",
+            category: "plomeria",
+            price: 79,
+            oldPrice: 99,
+            rating: 4.7,
+            reviews: 114,
+            icon: "fa-faucet",
+            tag: "Ahorro de Agua"
         }
     ];
 
@@ -159,10 +159,10 @@ $(document).ready(function() {
         // 4. Mostrar u ocultar mensaje de "Sin Resultados"
         if (filteredProducts.length === 0) {
             $noResults.show();
-            $resultsCount.text("Mostrando 0 productos");
+            $resultsCount.text("Mostrando 0 materiales");
         } else {
             $noResults.hide();
-            $resultsCount.text(`Mostrando ${filteredProducts.length} productos`);
+            $resultsCount.text(`Mostrando ${filteredProducts.length} materiales`);
 
             // 5. Renderizar tarjetas de productos
             filteredProducts.forEach(product => {
@@ -197,7 +197,7 @@ $(document).ready(function() {
                                 ${product.oldPrice ? `<span class="card-old-price">$${product.oldPrice}</span>` : ''}
                             </div>
                             <button class="btn btn-primary btn-add-cart" data-id="${product.id}">
-                                <i class="fa-solid fa-cart-plus"></i> Añadir al Carrito
+                                <i class="fa-solid fa-cart-plus"></i> Añadir a Pedido
                             </button>
                         </div>
                     </article>
@@ -211,27 +211,22 @@ $(document).ready(function() {
     /* ==========================================================================
        4. CONTROL DE FILTROS EN TIEMPO REAL
        ========================================================================== */
-    // Evento de escritura en buscador
     $search.on('input', renderCatalog);
 
-    // Evento de click en categorías
     $('.category-item').on('click', function() {
         $('.category-item').removeClass('active');
         $(this).addClass('active');
         renderCatalog();
     });
 
-    // Evento del slider de precios
     $priceSlider.on('input', function() {
         const val = $(this).val();
         $sliderVal.text(`$${val}`);
         renderCatalog();
     });
 
-    // Evento de ordenamiento
     $sortSelect.on('change', renderCatalog);
 
-    // Limpiar Filtros
     $btnReset.on('click', function() {
         $search.val('');
         $('.category-item').removeClass('active');
@@ -245,13 +240,11 @@ $(document).ready(function() {
     /* ==========================================================================
        5. INTERACTIVIDAD DEL MINI-CARRITO (jQuery Drawer)
        ========================================================================== */
-    // Abrir Carrito
     $cartToggle.on('click', function() {
         $cartDrawer.addClass('show');
         $('body').css('overflow', 'hidden');
     });
 
-    // Cerrar Carrito
     function closeCartDrawer() {
         $cartDrawer.removeClass('show');
         $('body').css('overflow', '');
@@ -260,7 +253,6 @@ $(document).ready(function() {
     $closeCart.on('click', closeCartDrawer);
     $('#btn-start-shopping').on('click', closeCartDrawer);
 
-    // Cerrar al clickear el fondo oscuro
     $cartDrawer.on('click', function(event) {
         if ($(event.target).is('#cart-drawer-backdrop')) {
             closeCartDrawer();
@@ -270,7 +262,6 @@ $(document).ready(function() {
     /* ==========================================================================
        6. LÓGICA Y EVENTOS DEL CARRITO DE COMPRAS
        ========================================================================== */
-    // Agregar producto al carrito
     $(document).on('click', '.btn-add-cart', function() {
         const prodId = parseInt($(this).data('id'));
         const product = products.find(p => p.id === prodId);
@@ -286,11 +277,9 @@ $(document).ready(function() {
             
             updateCart();
             
-            // Efecto Visual: Abrir carrito automáticamente y añadir clase de flash
             $cartDrawer.addClass('show');
             $('body').css('overflow', 'hidden');
             
-            // Micro-animación de rebote en el contador
             $cartCounter.addClass('animated-bounce');
             setTimeout(() => {
                 $cartCounter.removeClass('animated-bounce');
@@ -298,14 +287,12 @@ $(document).ready(function() {
         }
     });
 
-    // Eliminar producto
     $(document).on('click', '.remove-item-btn', function() {
         const prodId = parseInt($(this).data('id'));
         cart = cart.filter(item => item.product.id !== prodId);
         updateCart();
     });
 
-    // Incrementar cantidad
     $(document).on('click', '.qty-btn.plus', function() {
         const prodId = parseInt($(this).data('id'));
         const item = cart.find(i => i.product.id === prodId);
@@ -315,7 +302,6 @@ $(document).ready(function() {
         }
     });
 
-    // Decrementar cantidad
     $(document).on('click', '.qty-btn.minus', function() {
         const prodId = parseInt($(this).data('id'));
         const item = cart.find(i => i.product.id === prodId);
@@ -325,7 +311,6 @@ $(document).ready(function() {
         }
     });
 
-    // Actualizar estados del carrito, totales y renderizar drawer
     function updateCart() {
         let totalItems = 0;
         let subtotal = 0;
@@ -360,7 +345,7 @@ $(document).ready(function() {
                                 <span class="qty-val">${item.quantity}</span>
                                 <button class="qty-btn plus" data-id="${item.product.id}"><i class="fa-solid fa-plus"></i></button>
                             </div>
-                            <button class="remove-item-btn" data-id="${item.product.id}" aria-label="Eliminar artículo">
+                            <button class="remove-item-btn" data-id="${item.product.id}">
                                 <i class="fa-regular fa-trash-can"></i> Quitar
                             </button>
                         </div>
@@ -380,22 +365,16 @@ $(document).ready(function() {
     }
 
     /* ==========================================================================
-       7. CHECKOUT Y POPUP MODAL EXITOSO
+       7. CHECKOUT Y DIÁLOGO MODAL
        ========================================================================== */
     $checkoutBtn.on('click', function() {
         closeCartDrawer();
-        
-        // Simular carga de procesador de pago
         $checkoutBtn.prop('disabled', true).html('Procesando... <i class="fa-solid fa-spinner fa-spin"></i>');
         
         setTimeout(function() {
-            $checkoutBtn.prop('disabled', false).html('Proceder al Pago <i class="fa-solid fa-chevron-right"></i>');
-            
-            // Vaciar carrito
+            $checkoutBtn.prop('disabled', false).html('Confirmar Cotización <i class="fa-solid fa-chevron-right"></i>');
             cart = [];
             updateCart();
-            
-            // Mostrar modal de éxito
             $checkoutModal.addClass('show');
         }, 1500);
     });
@@ -404,7 +383,6 @@ $(document).ready(function() {
         $checkoutModal.removeClass('show');
     });
 
-    // Cerrar al clickear fuera del modal exitoso
     $checkoutModal.on('click', function(event) {
         if ($(event.target).is('#checkout-modal')) {
             $checkoutModal.removeClass('show');
@@ -412,7 +390,7 @@ $(document).ready(function() {
     });
 
     /* ==========================================================================
-       8. INICIALIZAR VISTAS
+       8. INICIALIZAR
        ========================================================================== */
     renderCatalog();
     updateCart();

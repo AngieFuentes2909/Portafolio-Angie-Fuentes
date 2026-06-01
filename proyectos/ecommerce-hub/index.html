@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopHub | Catálogo de Gadgets Premium</title>
-    <meta name="description" content="ShopHub - Catálogo interactivo de dispositivos y gadgets premium con filtros avanzados en tiempo real y carrito de compras dinámico.">
+    <title>Ferretería Ferremar | Catálogo de Materiales & Pedidos</title>
+    <meta name="description" content="Ferretería Ferremar - Catálogo interactivo de materiales de construcción, herramientas, electricidad y plomería con cotizador de pedidos en tiempo real.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,18 +23,18 @@
     <header class="shop-header">
         <div class="container shop-header-container">
             <a href="#" class="shop-logo">
-                <i class="fa-solid fa-bolt logo-accent"></i> Shop<span class="logo-bold">Hub</span>
+                <i class="fa-solid fa-screwdriver-wrench logo-accent"></i> Ferretería<span class="logo-bold">Ferremar</span>
             </a>
             
             <!-- Real-time Search Input -->
             <div class="search-bar-container">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                <input type="text" id="product-search" class="search-input" placeholder="Buscar gadgets, audífonos, relojes...">
+                <input type="text" id="product-search" class="search-input" placeholder="Buscar taladros, cables, cemento, tubería...">
             </div>
 
             <!-- Cart Trigger Button -->
-            <button class="cart-trigger" id="cart-toggle" aria-label="Abrir carrito de compras">
-                <i class="fa-solid fa-bag-shopping"></i>
+            <button class="cart-trigger" id="cart-toggle" aria-label="Abrir pedido de cotización">
+                <i class="fa-solid fa-clipboard-list"></i>
                 <span class="cart-badge" id="cart-counter">0</span>
             </button>
         </div>
@@ -46,7 +46,7 @@
             <!-- Sidebar Filters -->
             <aside class="filters-sidebar">
                 <div class="sidebar-header">
-                    <h3>Filtros de Búsqueda</h3>
+                    <h3>Filtros de Catálogo</h3>
                     <button class="reset-filters-btn" id="btn-reset-filters">Limpiar todo</button>
                 </div>
                 
@@ -54,21 +54,21 @@
                 <div class="filter-group">
                     <h4 class="filter-title">Categorías</h4>
                     <ul class="category-list" id="category-filter-list">
-                        <li class="category-item active" data-category="all">Todos los Productos</li>
-                        <li class="category-item" data-category="audio">Audio & Sonido</li>
-                        <li class="category-item" data-category="wearables">Wearables & Smartwatches</li>
-                        <li class="category-item" data-category="hogar">Smart Home / Hogar</li>
-                        <li class="category-item" data-category="tecnologia">Accesorios Tech</li>
+                        <li class="category-item active" data-category="all">Todos los Materiales</li>
+                        <li class="category-item" data-category="herramientas">Herramientas Manuales</li>
+                        <li class="category-item" data-category="construccion">Materiales de Construcción</li>
+                        <li class="category-item" data-category="electricidad">Electricidad & Iluminación</li>
+                        <li class="category-item" data-category="plomeria">Plomería & Grifería</li>
                     </ul>
                 </div>
 
                 <!-- Price Range Filter -->
                 <div class="filter-group">
-                    <h4 class="filter-title">Rango de Precio</h4>
+                    <h4 class="filter-title">Precio Máximo</h4>
                     <div class="price-range-wrapper">
-                        <input type="range" id="price-slider" class="price-slider" min="10" max="300" value="300">
+                        <input type="range" id="price-slider" class="price-slider" min="5" max="300" value="300">
                         <div class="price-labels">
-                            <span>$10</span>
+                            <span>$5</span>
                             <span>Máx: <strong class="text-accent" id="slider-price-val">$300</strong></span>
                         </div>
                     </div>
@@ -79,8 +79,8 @@
                     <h4 class="filter-title">Ordenar Por</h4>
                     <select id="sort-order" class="sort-select">
                         <option value="default">Recomendados</option>
-                        <option value="price-asc">Precio: Bajo a Alto</option>
-                        <option value="price-desc">Precio: Alto a Bajo</option>
+                        <option value="price-asc">Precio: Menor a Mayor</option>
+                        <option value="price-desc">Precio: Mayor a Menor</option>
                     </select>
                 </div>
             </aside>
@@ -91,7 +91,6 @@
                     <p class="results-count" id="results-count">Mostrando 8 productos</p>
                 </div>
                 
-                <!-- jQuery will dynamically render cards, but we include initial semantic HTML cards for SEO -->
                 <div class="products-grid" id="products-catalog">
                     <!-- Products will be dynamically populated/filtered by jQuery JS -->
                 </div>
@@ -100,7 +99,7 @@
                 <div class="no-results" id="no-results-message">
                     <i class="fa-solid fa-magnifying-glass no-results-icon"></i>
                     <h3>No se encontraron productos</h3>
-                    <p>Intenta modificar los filtros seleccionados o tu criterio de búsqueda.</p>
+                    <p>Intenta modificar los filtros seleccionados o tu criterio de búsqueda de materiales.</p>
                 </div>
             </section>
 
@@ -111,8 +110,8 @@
     <div class="cart-backdrop" id="cart-drawer-backdrop">
         <aside class="cart-drawer">
             <div class="cart-drawer-header">
-                <h3>Tu Carrito (<span id="cart-total-qty">0</span>)</h3>
-                <button class="close-cart-btn" id="close-cart" aria-label="Cerrar carrito"><i class="fa-solid fa-xmark"></i></button>
+                <h3>Detalle de Pedido (<span id="cart-total-qty">0</span>)</h3>
+                <button class="close-cart-btn" id="close-cart" aria-label="Cerrar pedido"><i class="fa-solid fa-xmark"></i></button>
             </div>
             
             <!-- Cart Items Container -->
@@ -122,29 +121,29 @@
             
             <!-- Empty Cart Message -->
             <div class="cart-empty-state" id="cart-empty-state">
-                <i class="fa-solid fa-basket-shopping empty-icon"></i>
-                <p>Tu carrito está vacío</p>
+                <i class="fa-solid fa-clipboard empty-icon"></i>
+                <p>No has añadido materiales a tu cotización</p>
                 <button class="btn btn-primary" id="btn-start-shopping">Explorar Catálogo</button>
             </div>
 
             <!-- Cart Footer (Calculations & Checkout) -->
             <div class="cart-drawer-footer" id="cart-summary-footer">
                 <div class="summary-line">
-                    <span>Subtotal</span>
+                    <span>Subtotal de Compra</span>
                     <span class="summary-value" id="cart-subtotal">$0.00</span>
                 </div>
                 <div class="summary-line">
-                    <span>Envío</span>
-                    <span class="summary-value text-green">Gratis</span>
+                    <span>Costo de Envío</span>
+                    <span class="summary-value text-green">Gratis (Barranquilla)</span>
                 </div>
                 <hr class="summary-divider">
                 <div class="summary-line total-line">
-                    <span>Total</span>
+                    <span>Total Estimado</span>
                     <span class="summary-value total-val" id="cart-total">$0.00</span>
                 </div>
                 
                 <button class="btn btn-primary btn-block checkout-btn" id="checkout-btn">
-                    Proceder al Pago <i class="fa-solid fa-chevron-right"></i>
+                    Confirmar Cotización <i class="fa-solid fa-chevron-right"></i>
                 </button>
             </div>
         </aside>
@@ -154,8 +153,8 @@
     <div class="modal-backdrop" id="checkout-modal">
         <div class="success-modal">
             <i class="fa-solid fa-circle-check success-modal-icon"></i>
-            <h2>¡Compra Completada!</h2>
-            <p>Tu orden ha sido procesada de manera exitosa. Recibirás un correo con el detalle del envío en breve.</p>
+            <h2>¡Cotización Generada!</h2>
+            <p>La solicitud de pedido de materiales de Ferretería Ferremar ha sido enviada exitosamente. Un asesor se comunicará al número registrado en Barranquilla para confirmar el despacho.</p>
             <button class="btn btn-primary" id="success-close-btn">Aceptar</button>
         </div>
     </div>

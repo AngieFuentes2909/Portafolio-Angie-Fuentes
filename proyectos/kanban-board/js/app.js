@@ -1,41 +1,41 @@
 /**
- * TaskFlow - Kanban Board Interactive Application (jQuery)
+ * NOC TicketFlow - Tablero de Control de Incidencias HFC (jQuery)
  */
 
 $(document).ready(function() {
 
     /* ==========================================================================
-       1. CONFIGURACIÓN DE TAREAS INICIALES (MOCK DATA)
+       1. CONFIGURACIÓN DE TAREAS INICIALES (MOCK DATA - INCIDENCIAS NOC)
        ========================================================================== */
     const sampleTasks = [
         {
             id: 101,
-            title: "Maquetar Layout General",
-            desc: "Crear la estructura responsiva del portafolio utilizando CSS Flexbox y Grid.",
+            title: "Alarma Crítica de Motogenerador PAN-14",
+            desc: "Se reporta caída de voltaje y nivel bajo de combustible en celda móvil en Ciudad de Panamá. Requiere envío urgente de soporte técnico local.",
             priority: "high",
-            date: "2026-06-05",
+            date: "2026-06-02",
             status: "todo"
         },
         {
             id: 102,
-            title: "Configurar Selectores jQuery",
-            desc: "Implementar toda la lógica interactiva del cambio de tema y menús colapsables.",
+            title: "Monitoreo de Ruido en Nodo HFC Liberty PR",
+            desc: "Incidencia de primer nivel relacionada con altos niveles de ruido en el canal de retorno del nodo HFC en Liberty Puerto Rico. Afecta a 150 usuarios.",
             priority: "medium",
             date: "2026-06-03",
             status: "progress"
         },
         {
             id: 103,
-            title: "Pruebas de Validación Modal",
-            desc: "Verificar que el modal de contacto en el Hub y el de prueba en el SaaS validen correctamente.",
+            title: "Optimización de Script Python para Alarmas NOC",
+            desc: "Revisar y mejorar el rendimiento de la consulta SQL y el script en Python encargado de automatizar el reporte consolidado de incidencias diarias.",
             priority: "low",
-            date: "2026-06-04",
+            date: "2026-06-05",
             status: "review"
         },
         {
             id: 104,
-            title: "Añadir Animaciones de Entrada",
-            desc: "Incorporar efectos de desvanecimiento y deslizamiento al cargar elementos de la interfaz.",
+            title: "Documentación de Incidentes Críticos Turno Noche",
+            desc: "Registro final, consulta y escalamiento de fallas masivas de energía presentadas en la red HFC internacional. Estado: Resuelto satisfactoriamente.",
             priority: "medium",
             date: "2026-05-30",
             status: "done"
@@ -52,7 +52,6 @@ $(document).ready(function() {
         if (stored) {
             tasks = JSON.parse(stored);
         } else {
-            // Cargar iniciales si está vacío y guardar en storage
             tasks = [...sampleTasks];
             localStorage.setItem('kanban_tasks', JSON.stringify(tasks));
         }
@@ -60,7 +59,6 @@ $(document).ready(function() {
         tasks = [...sampleTasks];
     }
 
-    // Mapeo lógicos de columnas
     const columns = ['todo', 'progress', 'review', 'done'];
 
     // Selectores jQuery
@@ -80,13 +78,9 @@ $(document).ready(function() {
        3. FUNCIONES DE RENDERIZADO DEL TABLERO KANBAN
        ========================================================================== */
     function renderBoard() {
-        // 1. Limpiar todos los contenedores de tarjetas
         $('.cards-container').empty();
-        
-        // Contadores iniciales
         let counts = { todo: 0, progress: 0, review: 0, done: 0 };
 
-        // 2. Recorrer y estructurar las tarjetas
         tasks.forEach(task => {
             counts[task.status]++;
 
@@ -99,8 +93,8 @@ $(document).ready(function() {
                     <div class="card-header-row">
                         <span class="card-priority-tag ${task.priority}">${task.priority === 'low' ? 'baja' : task.priority === 'medium' ? 'media' : 'alta'}</span>
                         <div class="card-actions-wrapper">
-                            <button class="card-btn btn-edit" data-id="${task.id}" aria-label="Editar tarea"><i class="fa-solid fa-pen"></i></button>
-                            <button class="card-btn btn-delete" data-id="${task.id}" aria-label="Eliminar tarea"><i class="fa-regular fa-trash-can"></i></button>
+                            <button class="card-btn btn-edit" data-id="${task.id}"><i class="fa-solid fa-pen"></i></button>
+                            <button class="card-btn btn-delete" data-id="${task.id}"><i class="fa-regular fa-trash-can"></i></button>
                         </div>
                     </div>
                     
@@ -110,7 +104,6 @@ $(document).ready(function() {
                     <div class="card-footer-row">
                         <span class="card-date"><i class="fa-regular fa-calendar"></i> ${formatDate(task.date)}</span>
                         
-                        <!-- Click-to-Move Controls (Ideal para maquetación responsiva móvil) -->
                         <div class="card-nav-controls">
                             <button class="card-nav-btn btn-prev" data-id="${task.id}" ${isFirstColumn ? 'disabled' : ''} aria-label="Mover a columna anterior">
                                 <i class="fa-solid fa-chevron-left"></i>
@@ -126,15 +119,13 @@ $(document).ready(function() {
             $(`#container-${task.status}`).append(cardHtml);
         });
 
-        // 3. Actualizar contadores numéricos visuales de cada columna
         columns.forEach(col => {
             $(`#badge-${col}`).text(counts[col]);
         });
     }
 
-    // Helper formatar fecha en UI
     function formatDate(dateStr) {
-        if (!dateStr) return 'Sin fecha';
+        if (!dateStr) return 'Sin SLA';
         const parts = dateStr.split('-');
         if (parts.length === 3) {
             return `${parts[2]}/${parts[1]}/${parts[0]}`;
@@ -142,7 +133,6 @@ $(document).ready(function() {
         return dateStr;
     }
 
-    // Guardar cambios en LocalStorage y re-renderizar
     function saveAndRender() {
         localStorage.setItem('kanban_tasks', JSON.stringify(tasks));
         renderBoard();
@@ -151,7 +141,6 @@ $(document).ready(function() {
     /* ==========================================================================
        4. LÓGICA DE MOVIMIENTO DE TARJETAS (CONTROLES CLICK-TO-MOVE)
        ========================================================================== */
-    // Mover a columna Siguiente (Derecha)
     $(document).on('click', '.btn-next', function() {
         const taskId = parseInt($(this).data('id'));
         const task = tasks.find(t => t.id === taskId);
@@ -159,7 +148,6 @@ $(document).ready(function() {
         if (task) {
             const currentIndex = columns.indexOf(task.status);
             if (currentIndex < columns.length - 1) {
-                // Micro-animación de salida jQuery
                 $(`#task-card-${taskId}`).fadeOut(200, function() {
                     task.status = columns[currentIndex + 1];
                     saveAndRender();
@@ -169,7 +157,6 @@ $(document).ready(function() {
         }
     });
 
-    // Mover a columna Anterior (Izquierda)
     $(document).on('click', '.btn-prev', function() {
         const taskId = parseInt($(this).data('id'));
         const task = tasks.find(t => t.id === taskId);
@@ -177,7 +164,6 @@ $(document).ready(function() {
         if (task) {
             const currentIndex = columns.indexOf(task.status);
             if (currentIndex > 0) {
-                // Micro-animación de salida jQuery
                 $(`#task-card-${taskId}`).fadeOut(200, function() {
                     task.status = columns[currentIndex - 1];
                     saveAndRender();
@@ -190,34 +176,26 @@ $(document).ready(function() {
     /* ==========================================================================
        5. EDICIÓN Y ELIMINACIÓN DE TARJETAS
        ========================================================================== */
-    // Eliminar Tarea
     $(document).on('click', '.btn-delete', function() {
         const taskId = parseInt($(this).data('id'));
-        
-        // Animación de colapso y desvanecimiento
         $(`#task-card-${taskId}`).slideUp(250, function() {
             tasks = tasks.filter(t => t.id !== taskId);
             saveAndRender();
         });
     });
 
-    // Abrir modal de edición
     $(document).on('click', '.btn-edit', function() {
         const taskId = parseInt($(this).data('id'));
         const task = tasks.find(t => t.id === taskId);
         
         if (task) {
-            // Poblar campos del modal
             $idField.val(task.id);
             $titleField.val(task.title);
             $descField.val(task.desc);
             $priorityField.val(task.priority);
             $dateField.val(task.date);
             
-            // Cambiar textos del modal a modo edición
-            $modalTitleText.text("Editar Tarea");
-            
-            // Abrir Modal
+            $modalTitleText.text("Editar Incidencia");
             $modal.addClass('show');
             $('body').css('overflow', 'hidden');
         }
@@ -226,28 +204,21 @@ $(document).ready(function() {
     /* ==========================================================================
        6. DIÁLOGO MODAL (AGREGAR / EDITAR) & VALIDACIÓN DE FORMULARIO
        ========================================================================== */
-    // Abrir Modal Crear
     $btnNewTask.on('click', function() {
-        // Limpiar campos e ID
         $idField.val('');
         $form[0].reset();
         
-        // Asegurar fecha límite por defecto como hoy
         const today = new Date().toISOString().split('T')[0];
         $dateField.val(today);
         
-        $modalTitleText.text("Crear Nueva Tarea");
-        
-        // Quitar clases inválidas anteriores
+        $modalTitleText.text("Registrar Incidencia NOC");
         $('.form-control').removeClass('invalid');
         $('.form-error').hide();
         
-        // Mostrar modal
         $modal.addClass('show');
         $('body').css('overflow', 'hidden');
     });
 
-    // Cerrar Modal
     function closeModalWindow() {
         $modal.removeClass('show');
         $('body').css('overflow', '');
@@ -267,7 +238,6 @@ $(document).ready(function() {
         }
     });
 
-    // Validación individual on-blur / on-input
     $('.form-control').on('blur input', function() {
         const $input = $(this);
         const id = $input.attr('id');
@@ -288,13 +258,10 @@ $(document).ready(function() {
         $input.toggleClass('invalid', !isValid);
     });
 
-    // Formulario Enviar (Guardar / Actualizar)
     $form.on('submit', function(event) {
         event.preventDefault();
-        
         let isFormValid = true;
         
-        // Validar Título
         const titleVal = $titleField.val().trim();
         if (titleVal.length === 0) {
             $titleField.addClass('invalid');
@@ -305,7 +272,6 @@ $(document).ready(function() {
             $('#title-error').hide();
         }
         
-        // Validar Descripción
         const descVal = $descField.val().trim();
         if (descVal.length < 5) {
             $descField.addClass('invalid');
@@ -316,7 +282,6 @@ $(document).ready(function() {
             $('#desc-error').hide();
         }
         
-        // Validar Fecha
         const dateVal = $dateField.val();
         if (!dateVal) {
             $dateField.addClass('invalid');
@@ -331,7 +296,6 @@ $(document).ready(function() {
             const taskId = $idField.val();
             
             if (taskId) {
-                // MODO EDICIÓN: Actualizar tarea existente
                 const task = tasks.find(t => t.id === parseInt(taskId));
                 if (task) {
                     task.title = titleVal;
@@ -340,7 +304,6 @@ $(document).ready(function() {
                     task.date = dateVal;
                 }
             } else {
-                // MODO CREACIÓN: Crear nueva tarea en 'todo'
                 const newTask = {
                     id: Date.now(),
                     title: titleVal,
@@ -360,6 +323,19 @@ $(document).ready(function() {
     /* ==========================================================================
        7. INICIALIZACIÓN
        ========================================================================== */
+    // Limpiar localStorage anterior si contenía mock data financiera
+    try {
+        const stored = localStorage.getItem('kanban_tasks');
+        if (stored) {
+            const parsed = JSON.parse(stored);
+            if (parsed.length > 0 && parsed[0].title === "Maquetar Layout General") {
+                localStorage.removeItem('kanban_tasks');
+                tasks = [...sampleTasks];
+                localStorage.setItem('kanban_tasks', JSON.stringify(tasks));
+            }
+        }
+    } catch(e) {}
+
     renderBoard();
 
 });
