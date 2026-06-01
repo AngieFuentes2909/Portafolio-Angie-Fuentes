@@ -733,11 +733,6 @@ body.light-theme .sun-icon { display: block; }
     color: #60a5fa;
 }
 
-.visual-gradient-sports {
-    background: linear-gradient(135deg, #1b4d3e 0%, #061f18 100%);
-    color: #4ade80;
-}
-
 .card-visual-icon {
     font-size: 3rem;
 }
