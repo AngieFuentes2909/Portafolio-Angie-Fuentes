@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Citas Célebres | Proyecto de Clase</title>
+    <meta name="description" content="Generador de Citas - Práctica académica de cambio aleatorio de frases célebres con efectos jQuery y Clipboard API.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Estilos -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dark-theme">
+
+    <header class="app-header">
+        <div class="container">
+            <a href="#" class="app-logo">
+                <i class="fa-solid fa-quote-left logo-icon"></i> Citas <span class="logo-accent">Célebres</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <div class="container">
+            <div class="quote-card">
+                <!-- Quote Body Wrapper -->
+                <div class="quote-body-wrapper" id="quote-box">
+                    <i class="fa-solid fa-quote-left quote-card-icon-left"></i>
+                    <p class="quote-text" id="quote-text-content">"La mejor forma de predecir el futuro es creándolo."</p>
+                    <span class="quote-author" id="quote-author-content">— Peter Drucker</span>
+                </div>
+                
+                <!-- Action row -->
+                <div class="quote-actions-row">
+                    <button class="btn btn-secondary" id="btn-copy-quote" title="Copiar cita al portapapeles">
+                        <i class="fa-regular fa-copy"></i> Copiar Cita
+                    </button>
+                    
+                    <button class="btn btn-primary" id="btn-new-quote">
+                        Siguiente Cita <i class="fa-solid fa-shuffle"></i>
+                    </button>
+                </div>
+                
+                <!-- Feedback Toast -->
+                <div class="toast-alert" id="copy-toast-message">
+                    <i class="fa-solid fa-circle-check"></i> ¡Cita copiada al portapapeles!
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <div class="container">
+            <p>&copy; Angie Fuentes</p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/app.js"></script>
+</body>
+</html>

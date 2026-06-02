@@ -1,0 +1,248 @@
+/* ==========================================================================
+   GENERADOR DE CITAS - DESIGN SYSTEM & VARS
+   ========================================================================== */
+
+:root {
+    --bg-primary: #0f0d14; /* Mystic Violet Dark Background */
+    --bg-secondary: #171320; /* Darker slate-purple */
+    --bg-tertiary: #231c30;
+    --border-color: rgba(255, 255, 255, 0.05);
+    
+    --text-primary: #faf9fb;
+    --text-secondary: #d9d4de;
+    --text-muted: #7f738c;
+    
+    --accent: #ec4899; /* Fuchsia/Pink */
+    --accent-hover: #db2777;
+    --accent-light: rgba(236, 72, 153, 0.15);
+    
+    --radius-sm: 6px;
+    --radius-md: 16px;
+    --radius-full: 9999px;
+    
+    --font-heading: 'Outfit', 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-quote: 'Playfair Display', 'Georgia', serif;
+    
+    --header-height: 80px;
+    --max-width: 600px;
+}
+
+/* ==========================================================================
+   RESET & BASICS
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 90%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   HEADER & FOOTER
+   ========================================================================== */
+
+.app-header {
+    height: var(--header-height);
+    background-color: rgba(23, 19, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+}
+
+.app-logo {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.logo-icon {
+    color: var(--accent);
+}
+
+.logo-accent {
+    color: var(--accent);
+}
+
+.app-footer {
+    padding: 24px 0;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   QUOTE CARD
+   ========================================================================== */
+
+.app-main {
+    padding: 40px 0;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.quote-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 40px rgba(236, 72, 153, 0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+.quote-body-wrapper {
+    position: relative;
+    padding: 20px 0 30px 0;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quote-card-icon-left {
+    position: absolute;
+    top: 0;
+    left: -10px;
+    font-size: 3.5rem;
+    color: rgba(236, 72, 153, 0.05);
+    z-index: 1;
+}
+
+.quote-text {
+    font-family: var(--font-quote);
+    font-size: 1.45rem;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+    color: var(--text-primary);
+}
+
+.quote-author {
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    align-self: flex-end;
+}
+
+/* Actions Row */
+.quote-actions-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 24px;
+    gap: 16px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    gap: 8px;
+    outline: none;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    box-shadow: 0 6px 16px rgba(236, 72, 153, 0.3);
+}
+
+.btn-secondary {
+    background-color: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+/* Copy feedback toast */
+.toast-alert {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(50px);
+    background-color: #10b981;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    z-index: 100;
+}
+
+.toast-alert.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 480px) {
+    .quote-card {
+        padding: 24px;
+    }
+    .quote-text {
+        font-size: 1.2rem;
+    }
+    .quote-actions-row {
+        flex-direction: column-reverse;
+        gap: 12px;
+    }
+    .quote-actions-row .btn {
+        width: 100%;
+    }
+}

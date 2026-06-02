@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Monedas | Proyecto de Clase</title>
+    <meta name="description" content="Conversor de Divisas - Práctica interactiva escolar de conversión de monedas con jQuery.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Estilos -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dark-theme">
+
+    <header class="app-header">
+        <div class="container">
+            <a href="#" class="app-logo">
+                <i class="fa-solid fa-money-bill-transfer logo-icon"></i> Conversor de <span class="logo-accent">Monedas</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <div class="container">
+            <div class="converter-card">
+                <div class="card-header">
+                    <h2>Conversión de Divisas</h2>
+                    <p>Ingresa un monto, selecciona las monedas y calcula al instante.</p>
+                </div>
+                
+                <form id="converter-form" class="converter-form">
+                    <div class="form-group">
+                        <label for="amount">Monto a Convertir</label>
+                        <div class="input-wrapper">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="amount" class="form-control" placeholder="100.00" value="100" min="0" required>
+                        </div>
+                        <span class="form-error" id="amount-error">Ingrese un monto válido mayor a 0.</span>
+                    </div>
+                    
+                    <div class="converter-row">
+                        <div class="form-group">
+                            <label for="from-currency">De (Moneda Origen)</label>
+                            <select id="from-currency" class="form-control select-control">
+                                <option value="USD" selected>USD - Dólar Estadounidense</option>
+                                <option value="EUR">EUR - Euro</option>
+                                <option value="COP">COP - Peso Colombiano</option>
+                                <option value="MXN">MXN - Peso Mexicano</option>
+                            </select>
+                        </div>
+                        
+                        <button type="button" class="btn-swap" id="btn-swap-currencies" aria-label="Intercambiar monedas">
+                            <i class="fa-solid fa-right-left"></i>
+                        </button>
+                        
+                        <div class="form-group">
+                            <label for="to-currency">A (Moneda Destino)</label>
+                            <select id="to-currency" class="form-control select-control">
+                                <option value="USD">USD - Dólar Estadounidense</option>
+                                <option value="EUR">EUR - Euro</option>
+                                <option value="COP" selected>COP - Peso Colombiano</option>
+                                <option value="MXN">MXN - Peso Mexicano</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block" id="btn-calculate">
+                        Calcular Conversión <i class="fa-solid fa-calculator"></i>
+                    </button>
+                </form>
+                
+                <!-- Result Area -->
+                <div class="result-area" id="result-container" style="display: none;">
+                    <p class="conversion-formula" id="conversion-text-formula">1 USD = 4,000 COP</p>
+                    <h3 class="conversion-result" id="conversion-text-result">$400,000.00 COP</h3>
+                </div>
+
+                <!-- Rates Table Info -->
+                <div class="rates-table-section">
+                    <h4>Tasas de Cambio de Referencia (Base USD)</h4>
+                    <div class="rates-grid">
+                        <div class="rate-box"><span>1 USD = 1.00 USD</span></div>
+                        <div class="rate-box"><span>1 USD = 0.92 EUR</span></div>
+                        <div class="rate-box"><span>1 USD = 4,000 COP</span></div>
+                        <div class="rate-box"><span>1 USD = 17.50 MXN</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <div class="container">
+            <p>&copy; Angie Fuentes</p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/app.js"></script>
+</body>
+</html>

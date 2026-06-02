@@ -3,20 +3,20 @@
    ========================================================================== */
 
 :root {
-    --bg-primary: #0f172a;
-    --bg-secondary: #1e293b;
-    --bg-tertiary: #334155;
+    --bg-primary: #061a15; /* Forest Green Dark background */
+    --bg-secondary: #0b2620; /* Darker slate-green for cards */
+    --bg-tertiary: #11382f; /* Deep teal-green for inputs */
     --border-color: rgba(255, 255, 255, 0.08);
     
-    --text-primary: #f8fafc;
+    --text-primary: #f2f7f5;
     --text-secondary: #cbd5e1;
-    --text-muted: #64748b;
+    --text-muted: #648079;
     
-    --accent: #f59e0b; /* Amber/Orange for PetShop */
-    --accent-hover: #d97706;
-    --accent-light: rgba(245, 158, 11, 0.15);
+    --accent: #10b981; /* Emerald/Mint Green for PetShop */
+    --accent-hover: #059669;
+    --accent-light: rgba(16, 185, 129, 0.15);
     
-    --green: #10b981;
+    --green: #34d399;
     --red: #ef4444;
     --warning: #fbbf24;
     
@@ -91,7 +91,7 @@ button, input, select {
     left: 0;
     width: 100%;
     height: var(--header-height);
-    background-color: rgba(30, 41, 59, 0.85);
+    background-color: rgba(11, 38, 32, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);

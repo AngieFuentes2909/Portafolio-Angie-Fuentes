@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC | Proyecto de Clase</title>
+    <meta name="description" content="Calculadora de IMC - Práctica escolar para medir el índice de masa corporal dinámicamente con sliders interactivos y jQuery.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Estilos -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dark-theme">
+
+    <header class="app-header">
+        <div class="container">
+            <a href="#" class="app-logo">
+                <i class="fa-solid fa-heart-pulse logo-icon"></i> Calculadora <span class="logo-accent">IMC</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <div class="container">
+            <div class="imc-card">
+                <div class="card-header">
+                    <h2>Mide tu Índice de Masa Corporal</h2>
+                    <p>Mueve los controles deslizantes para estimar tu composición corporal.</p>
+                </div>
+                
+                <div class="imc-grid-container">
+                    <!-- Controls Column -->
+                    <div class="imc-controls-column">
+                        <!-- Height Control -->
+                        <div class="control-group">
+                            <div class="control-header">
+                                <label for="height-slider">Estatura</label>
+                                <span class="control-val"><strong id="height-val">170</strong> cm</span>
+                            </div>
+                            <input type="range" id="height-slider" class="range-slider" min="100" max="220" value="170">
+                        </div>
+                        
+                        <!-- Weight Control -->
+                        <div class="control-group">
+                            <div class="control-header">
+                                <label for="weight-slider">Peso Corporal</label>
+                                <span class="control-val"><strong id="weight-val">70</strong> kg</span>
+                            </div>
+                            <input type="range" id="weight-slider" class="range-slider" min="30" max="150" value="70">
+                        </div>
+                    </div>
+
+                    <!-- Result Panel Column -->
+                    <div class="imc-result-column">
+                        <div class="imc-circle-display">
+                            <span class="imc-label">Tu IMC es</span>
+                            <h3 id="imc-number">24.2</h3>
+                        </div>
+                        
+                        <div class="result-status-card">
+                            <h4 id="imc-status-title">Peso Normal</h4>
+                            <p id="imc-status-desc">Tienes un peso corporal saludable. ¡Sigue así!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IMC Category scale bar -->
+                <div class="imc-scale-container">
+                    <div class="scale-bar">
+                        <div class="scale-segment bajo-peso"><span>Bajo Peso</span></div>
+                        <div class="scale-segment normal"><span>Normal</span></div>
+                        <div class="scale-segment sobrepeso"><span>Sobrepeso</span></div>
+                        <div class="scale-segment obesidad"><span>Obesidad</span></div>
+                        <!-- dynamic pointer arrow -->
+                        <div class="scale-pointer" id="scale-pointer-arrow">
+                            <i class="fa-solid fa-caret-up pointer-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <div class="container">
+            <p>&copy; Angie Fuentes</p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/app.js"></script>
+</body>
+</html>
