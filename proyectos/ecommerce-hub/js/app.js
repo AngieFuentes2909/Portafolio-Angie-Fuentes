@@ -10,91 +10,91 @@ $(document).ready(function() {
     const products = [
         {
             id: 1,
-            name: "Taladro Percutor Profesional 650W",
-            category: "herramientas",
-            price: 89,
+            name: "Alimento Premium Perro Adulto (15kg)",
+            category: "perros",
+            price: 45,
             oldPrice: null,
             rating: 4.8,
             reviews: 145,
-            icon: "fa-screwdriver-wrench",
-            tag: "2 Años de Garantía"
+            icon: "fa-bone",
+            tag: "Alta Proteína"
         },
         {
             id: 2,
-            name: "Rollo Cable de Cobre #12 (100m)",
-            category: "electricidad",
-            price: 59,
-            oldPrice: 79,
+            name: "Rascador para Gato de Tres Niveles",
+            category: "gatos",
+            price: 29,
+            oldPrice: 39,
             rating: 4.7,
             reviews: 98,
-            icon: "fa-bolt-lightning",
-            tag: "Certificado RETIE"
+            icon: "fa-cat",
+            tag: "Con Juguetes Colgantes"
         },
         {
             id: 3,
-            name: "Bolsa de Cemento Estructural 50kg",
-            category: "construccion",
-            price: 15,
+            name: "Juguete de Goma Hueso para Perros",
+            category: "perros",
+            price: 8,
             oldPrice: null,
             rating: 4.5,
             reviews: 212,
-            icon: "fa-cubes",
-            tag: "Alta Resistencia"
+            icon: "fa-dog",
+            tag: "Extra Resistente"
         },
         {
             id: 4,
-            name: "Tubo de Presión PVC 1/2 (6 metros)",
-            category: "plomeria",
-            price: 9,
-            oldPrice: 12,
+            name: "Mixtura Especial de Semillas Aves (2kg)",
+            category: "aves",
+            price: 12,
+            oldPrice: 15,
             rating: 4.9,
             reviews: 320,
-            icon: "fa-lines-leaning",
-            tag: "RDE 21 Calidad"
+            icon: "fa-dove",
+            tag: "Vitaminas Reforzadas"
         },
         {
             id: 5,
-            name: "Reflector LED Exterior Smart 100W",
-            category: "electricidad",
-            price: 29,
-            oldPrice: 39,
+            name: "Cama Acolchada Lavable Grande",
+            category: "accesorios",
+            price: 35,
+            oldPrice: 45,
             rating: 4.6,
             reviews: 78,
-            icon: "fa-lightbulb",
-            tag: "IP66 Impermeable"
+            icon: "fa-house-chimney-window",
+            tag: "Material Antialérgico"
         },
         {
             id: 6,
-            name: "Juego de Llaves Inglesas (6 pzas)",
-            category: "herramientas",
-            price: 45,
+            name: "Collar Ajustable Reflectivo para Gato",
+            category: "gatos",
+            price: 7,
             oldPrice: null,
             rating: 4.3,
             reviews: 165,
-            icon: "fa-wrench",
-            tag: "Acero Cromo Vanadio"
+            icon: "fa-shield-dog",
+            tag: "Con Cascabel"
         },
         {
             id: 7,
-            name: "Interruptor Inteligente Wifi 3 Teclas",
-            category: "electricidad",
-            price: 19,
+            name: "Bebedero Fuente Automático Silencioso",
+            category: "accesorios",
+            price: 25,
             oldPrice: null,
             rating: 4.4,
             reviews: 87,
-            icon: "fa-network-wired",
-            tag: "Smart Home"
+            icon: "fa-faucet-drip",
+            tag: "Filtro de Carbón"
         },
         {
             id: 8,
-            name: "Grifería Mezcladora para Lavamanos",
-            category: "plomeria",
-            price: 79,
-            oldPrice: 99,
+            name: "Jaula Espaciosa para Aves de Jardín",
+            category: "aves",
+            price: 49,
+            oldPrice: 59,
             rating: 4.7,
             reviews: 114,
-            icon: "fa-faucet",
-            tag: "Ahorro de Agua"
+            icon: "fa-feather",
+            tag: "Fácil Limpieza"
         }
     ];
 
@@ -159,10 +159,10 @@ $(document).ready(function() {
         // 4. Mostrar u ocultar mensaje de "Sin Resultados"
         if (filteredProducts.length === 0) {
             $noResults.show();
-            $resultsCount.text("Mostrando 0 materiales");
+            $resultsCount.text("Mostrando 0 productos");
         } else {
             $noResults.hide();
-            $resultsCount.text(`Mostrando ${filteredProducts.length} materiales`);
+            $resultsCount.text(`Mostrando ${filteredProducts.length} productos`);
 
             // 5. Renderizar tarjetas de productos
             filteredProducts.forEach(product => {
@@ -231,8 +231,8 @@ $(document).ready(function() {
         $search.val('');
         $('.category-item').removeClass('active');
         $('.category-item[data-category="all"]').addClass('active');
-        $priceSlider.val(300);
-        $sliderVal.text('$300');
+        $priceSlider.val(100);
+        $sliderVal.text('$100');
         $sortSelect.val('default');
         renderCatalog();
     });

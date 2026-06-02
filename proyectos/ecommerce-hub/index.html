@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ferretería Ferremar | Catálogo de Materiales & Pedidos</title>
-    <meta name="description" content="Ferretería Ferremar - Catálogo interactivo de materiales de construcción, herramientas, electricidad y plomería con cotizador de pedidos en tiempo real.">
+    <title>PetShop | Catálogo de Alimentos & Juguetes</title>
+    <meta name="description" content="PetShop - Catálogo interactivo de alimentos premium, juguetes y accesorios para mascotas con cotizador en tiempo real.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,23 +17,23 @@
     <!-- CSS Estilos -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="light-theme">
+<body class="dark-theme">
 
     <!-- Header / Navbar -->
     <header class="shop-header">
         <div class="container shop-header-container">
             <a href="#" class="shop-logo">
-                <i class="fa-solid fa-screwdriver-wrench logo-accent"></i> Ferretería<span class="logo-bold">Ferremar</span>
+                <i class="fa-solid fa-paw logo-accent"></i> Pet<span class="logo-bold">Shop</span>
             </a>
             
             <!-- Real-time Search Input -->
             <div class="search-bar-container">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                <input type="text" id="product-search" class="search-input" placeholder="Buscar taladros, cables, cemento, tubería...">
+                <input type="text" id="product-search" class="search-input" placeholder="Buscar croquetas, rascadores, collares, juguetes...">
             </div>
 
             <!-- Cart Trigger Button -->
-            <button class="cart-trigger" id="cart-toggle" aria-label="Abrir pedido de cotización">
+            <button class="cart-trigger" id="cart-toggle" aria-label="Abrir cotización de productos">
                 <i class="fa-solid fa-clipboard-list"></i>
                 <span class="cart-badge" id="cart-counter">0</span>
             </button>
@@ -46,19 +46,19 @@
             <!-- Sidebar Filters -->
             <aside class="filters-sidebar">
                 <div class="sidebar-header">
-                    <h3>Filtros de Catálogo</h3>
+                    <h3>Filtros</h3>
                     <button class="reset-filters-btn" id="btn-reset-filters">Limpiar todo</button>
                 </div>
                 
                 <!-- Category Filter -->
                 <div class="filter-group">
-                    <h4 class="filter-title">Categorías</h4>
+                    <h4 class="filter-title">Mascotas</h4>
                     <ul class="category-list" id="category-filter-list">
-                        <li class="category-item active" data-category="all">Todos los Materiales</li>
-                        <li class="category-item" data-category="herramientas">Herramientas Manuales</li>
-                        <li class="category-item" data-category="construccion">Materiales de Construcción</li>
-                        <li class="category-item" data-category="electricidad">Electricidad & Iluminación</li>
-                        <li class="category-item" data-category="plomeria">Plomería & Grifería</li>
+                        <li class="category-item active" data-category="all">Todos los Productos</li>
+                        <li class="category-item" data-category="perros">Para Perros</li>
+                        <li class="category-item" data-category="gatos">Para Gatos</li>
+                        <li class="category-item" data-category="aves">Para Aves</li>
+                        <li class="category-item" data-category="accesorios">Accesorios Varios</li>
                     </ul>
                 </div>
 
@@ -66,10 +66,10 @@
                 <div class="filter-group">
                     <h4 class="filter-title">Precio Máximo</h4>
                     <div class="price-range-wrapper">
-                        <input type="range" id="price-slider" class="price-slider" min="5" max="300" value="300">
+                        <input type="range" id="price-slider" class="price-slider" min="5" max="100" value="100">
                         <div class="price-labels">
                             <span>$5</span>
-                            <span>Máx: <strong class="text-accent" id="slider-price-val">$300</strong></span>
+                            <span>Máx: <strong class="text-accent" id="slider-price-val">$100</strong></span>
                         </div>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                 <div class="no-results" id="no-results-message">
                     <i class="fa-solid fa-magnifying-glass no-results-icon"></i>
                     <h3>No se encontraron productos</h3>
-                    <p>Intenta modificar los filtros seleccionados o tu criterio de búsqueda de materiales.</p>
+                    <p>Intenta modificar los filtros seleccionados o tu criterio de búsqueda de productos.</p>
                 </div>
             </section>
 
@@ -122,7 +122,7 @@
             <!-- Empty Cart Message -->
             <div class="cart-empty-state" id="cart-empty-state">
                 <i class="fa-solid fa-clipboard empty-icon"></i>
-                <p>No has añadido materiales a tu cotización</p>
+                <p>No has añadido productos a tu cotización</p>
                 <button class="btn btn-primary" id="btn-start-shopping">Explorar Catálogo</button>
             </div>
 
@@ -154,7 +154,7 @@
         <div class="success-modal">
             <i class="fa-solid fa-circle-check success-modal-icon"></i>
             <h2>¡Cotización Generada!</h2>
-            <p>La solicitud de pedido de materiales de Ferretería Ferremar ha sido enviada exitosamente. Un asesor se comunicará al número registrado en Barranquilla para confirmar el despacho.</p>
+            <p>La solicitud de pedido de comida y juguetes de PetShop ha sido enviada exitosamente. Un asesor se comunicará al número registrado en Barranquilla para confirmar el despacho.</p>
             <button class="btn btn-primary" id="success-close-btn">Aceptar</button>
         </div>
     </div>

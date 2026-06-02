@@ -44,7 +44,7 @@ $(document).ready(function() {
         $('.price-period').each(function() {
             const $period = $(this);
             $period.fadeOut(150, function() {
-                $period.text(isYearly ? '/mes (cobrado anual)' : '/mes').fadeIn(150);
+                $period.text(isYearly ? '/combo' : '/unidad').fadeIn(150);
             });
         });
     });
@@ -254,10 +254,10 @@ $(document).ready(function() {
         
         if (isFormValid) {
             // Bloquear botón y simular envío
-            $submitBtn.prop('disabled', true).text('Registrando...');
+            $submitBtn.prop('disabled', true).text('Reservando...');
             
             setTimeout(function() {
-                $submitBtn.prop('disabled', false).text('Crear Cuenta Gratis');
+                $submitBtn.prop('disabled', false).text('Confirmar Reserva de Mesa');
                 $successAlert.slideDown(200);
                 
                 // Limpiar formulario

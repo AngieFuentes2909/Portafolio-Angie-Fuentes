@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOC TicketFlow | Control de Incidencias HFC & Red Móvil</title>
+    <title>ToDo List | Administrador de Tareas Básico</title>
     <meta name="description"
-        content="NOC TicketFlow - Sistema interactivo para la gestión y escalamiento de incidencias de red, alarmas de celdas y mantenimiento HFC.">
+        content="ToDo List - Tablero interactivo sencillo para organizar pendientes cotidianos en columnas de forma fácil.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,13 +28,13 @@
     <header class="board-header">
         <div class="container board-header-container">
             <a href="#" class="board-logo">
-                <i class="fa-solid fa-square-poll-horizontal logo-icon"></i> NOC <span
-                    class="logo-accent">TicketFlow</span>
+                <i class="fa-solid fa-check-double logo-icon"></i> ToDo <span
+                    class="logo-accent">List</span>
             </a>
 
             <div class="board-actions">
                 <button class="btn btn-primary" id="btn-new-task">
-                    <i class="fa-solid fa-plus"></i> Registrar Incidencia
+                    <i class="fa-solid fa-plus"></i> Registrar Tarea
                 </button>
             </div>
         </div>
@@ -49,7 +49,7 @@
                 <!-- Column 1: Todo -->
                 <section class="board-column" data-column="todo">
                     <div class="column-header border-todo">
-                        <h3 class="column-title">Por Resolver</h3>
+                        <h3 class="column-title">Por Hacer</h3>
                         <span class="column-badge badge-todo" id="badge-todo">0</span>
                     </div>
                     <div class="cards-container" id="container-todo">
@@ -60,7 +60,7 @@
                 <!-- Column 2: In Progress -->
                 <section class="board-column" data-column="progress">
                     <div class="column-header border-progress">
-                        <h3 class="column-title">En Atención</h3>
+                        <h3 class="column-title">En Proceso</h3>
                         <span class="column-badge badge-progress" id="badge-progress">0</span>
                     </div>
                     <div class="cards-container" id="container-progress">
@@ -68,21 +68,10 @@
                     </div>
                 </section>
 
-                <!-- Column 3: In Review -->
-                <section class="board-column" data-column="review">
-                    <div class="column-header border-review">
-                        <h3 class="column-title">En Pruebas de Red</h3>
-                        <span class="column-badge badge-review" id="badge-review">0</span>
-                    </div>
-                    <div class="cards-container" id="container-review">
-                        <!-- Dynamic Cards here -->
-                    </div>
-                </section>
-
-                <!-- Column 4: Done -->
+                <!-- Column 3: Done -->
                 <section class="board-column" data-column="done">
                     <div class="column-header border-done">
-                        <h3 class="column-title">Solucionado</h3>
+                        <h3 class="column-title">Terminado</h3>
                         <span class="column-badge badge-done" id="badge-done">0</span>
                     </div>
                     <div class="cards-container" id="container-done">
@@ -102,8 +91,8 @@
                     class="fa-solid fa-xmark"></i></button>
 
             <div class="modal-header-content">
-                <h3 class="modal-title" id="modal-title-text">Registrar Incidencia NOC</h3>
-                <p class="modal-subtitle">Estructure y controle alarmas críticas de infraestructura HFC y redes móviles.
+                <h3 class="modal-title" id="modal-title-text">Registrar Nueva Tarea</h3>
+                <p class="modal-subtitle">Crea y organiza tus pendientes académicos y cotidianos de forma muy sencilla.
                 </p>
             </div>
 
@@ -112,37 +101,37 @@
                 <input type="hidden" id="task-id-field">
 
                 <div class="form-group">
-                    <label for="task-title">Incidencia / Alarma de Red</label>
+                    <label for="task-title">Título de la Tarea</label>
                     <input type="text" id="task-title" class="form-control"
-                        placeholder="Ej. Falla de motogenerador en celda PAN-08" required>
-                    <span class="form-error" id="title-error">El asunto de la incidencia es obligatorio.</span>
+                        placeholder="Ej. Estudiar para el examen de cálculo" required>
+                    <span class="form-error" id="title-error">El título de la tarea es obligatorio.</span>
                 </div>
 
                 <div class="form-group">
-                    <label for="task-desc">Descripción Técnica</label>
+                    <label for="task-desc">Detalle o Descripción</label>
                     <textarea id="task-desc" class="form-control" rows="3"
-                        placeholder="Detalla los síntomas de la alarma de red o HFC..." required></textarea>
+                        placeholder="Describe brevemente qué necesitas hacer..." required></textarea>
                     <span class="form-error" id="desc-error">La descripción debe tener al menos 5 caracteres.</span>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="task-priority">Prioridad / Impacto</label>
+                        <label for="task-priority">Prioridad</label>
                         <select id="task-priority" class="form-control">
-                            <option value="low">Baja (Minor)</option>
-                            <option value="medium" selected>Media (Major)</option>
-                            <option value="high">Alta (Critical)</option>
+                            <option value="low">Baja</option>
+                            <option value="medium" selected>Media</option>
+                            <option value="high">Alta</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="task-date">Fecha Límite / SLA</label>
+                        <label for="task-date">Fecha Límite</label>
                         <input type="date" id="task-date" class="form-control" required>
-                        <span class="form-error" id="date-error">Seleccione una fecha de vencimiento de SLA.</span>
+                        <span class="form-error" id="date-error">Seleccione una fecha de vencimiento.</span>
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-block" id="task-submit-btn">Guardar Incidencia</button>
+                <button type="submit" class="btn btn-primary btn-block" id="task-submit-btn">Guardar Tarea</button>
             </form>
         </div>
     </div>

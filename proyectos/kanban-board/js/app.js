@@ -1,41 +1,41 @@
 /**
- * NOC TicketFlow - Tablero de Control de Incidencias HFC (jQuery)
+ * ToDo List - Administrador de Tareas Básico (jQuery)
  */
 
 $(document).ready(function() {
 
     /* ==========================================================================
-       1. CONFIGURACIÓN DE TAREAS INICIALES (MOCK DATA - INCIDENCIAS NOC)
+       1. CONFIGURACIÓN DE TAREAS INICIALES (MOCK DATA ACADÉMICA)
        ========================================================================== */
     const sampleTasks = [
         {
             id: 101,
-            title: "Alarma Crítica de Motogenerador PAN-14",
-            desc: "Se reporta caída de voltaje y nivel bajo de combustible en celda móvil en Ciudad de Panamá. Requiere envío urgente de soporte técnico local.",
+            title: "Estudiar Selectores jQuery",
+            desc: "Aprender a seleccionar elementos del DOM por clase, ID y atributos de forma básica para la práctica de la semana.",
             priority: "high",
             date: "2026-06-02",
             status: "todo"
         },
         {
             id: 102,
-            title: "Monitoreo de Ruido en Nodo HFC Liberty PR",
-            desc: "Incidencia de primer nivel relacionada con altos niveles de ruido en el canal de retorno del nodo HFC en Liberty Puerto Rico. Afecta a 150 usuarios.",
+            title: "Maquetar Menú de Café Aroma",
+            desc: "Diseñar el menú usando CSS Grid y flexbox simple para que sea completamente responsivo en todas las pantallas.",
             priority: "medium",
             date: "2026-06-03",
             status: "progress"
         },
         {
             id: 103,
-            title: "Optimización de Script Python para Alarmas NOC",
-            desc: "Revisar y mejorar el rendimiento de la consulta SQL y el script en Python encargado de automatizar el reporte consolidado de incidencias diarias.",
+            title: "Crear Estilos CSS Básicos",
+            desc: "Crear variables de color y fuentes básicas en el archivo style.css para el proyecto de práctica.",
             priority: "low",
             date: "2026-06-05",
-            status: "review"
+            status: "todo"
         },
         {
             id: 104,
-            title: "Documentación de Incidentes Críticos Turno Noche",
-            desc: "Registro final, consulta y escalamiento de fallas masivas de energía presentadas en la red HFC internacional. Estado: Resuelto satisfactoriamente.",
+            title: "Subir Proyecto a GitHub",
+            desc: "Crear un repositorio público para compartir la práctica académica con los compañeros de clase.",
             priority: "medium",
             date: "2026-05-30",
             status: "done"
@@ -50,7 +50,16 @@ $(document).ready(function() {
     try {
         const stored = localStorage.getItem('kanban_tasks');
         if (stored) {
-            tasks = JSON.parse(stored);
+            const parsed = JSON.parse(stored);
+            // Si las tareas cargadas contienen estados antiguos (como review) o temas NOC, resetear
+            const needsReset = parsed.some(t => t.status === 'review' || t.title.includes('Alarma') || t.title.includes('NOC'));
+            if (needsReset) {
+                localStorage.removeItem('kanban_tasks');
+                tasks = [...sampleTasks];
+                localStorage.setItem('kanban_tasks', JSON.stringify(tasks));
+            } else {
+                tasks = parsed;
+            }
         } else {
             tasks = [...sampleTasks];
             localStorage.setItem('kanban_tasks', JSON.stringify(tasks));
@@ -59,7 +68,7 @@ $(document).ready(function() {
         tasks = [...sampleTasks];
     }
 
-    const columns = ['todo', 'progress', 'review', 'done'];
+    const columns = ['todo', 'progress', 'done'];
 
     // Selectores jQuery
     const $modal = $('#task-modal');
@@ -79,10 +88,12 @@ $(document).ready(function() {
        ========================================================================== */
     function renderBoard() {
         $('.cards-container').empty();
-        let counts = { todo: 0, progress: 0, review: 0, done: 0 };
+        let counts = { todo: 0, progress: 0, done: 0 };
 
         tasks.forEach(task => {
-            counts[task.status]++;
+            if (counts[task.status] !== undefined) {
+                counts[task.status]++;
+            }
 
             const colIndex = columns.indexOf(task.status);
             const isFirstColumn = colIndex === 0;
@@ -116,7 +127,9 @@ $(document).ready(function() {
                 </div>
             `;
 
-            $(`#container-${task.status}`).append(cardHtml);
+            if (columns.includes(task.status)) {
+                $(`#container-${task.status}`).append(cardHtml);
+            }
         });
 
         columns.forEach(col => {
@@ -125,7 +138,7 @@ $(document).ready(function() {
     }
 
     function formatDate(dateStr) {
-        if (!dateStr) return 'Sin SLA';
+        if (!dateStr) return 'Sin fecha';
         const parts = dateStr.split('-');
         if (parts.length === 3) {
             return `${parts[2]}/${parts[1]}/${parts[0]}`;
@@ -195,7 +208,7 @@ $(document).ready(function() {
             $priorityField.val(task.priority);
             $dateField.val(task.date);
             
-            $modalTitleText.text("Editar Incidencia");
+            $modalTitleText.text("Editar Tarea");
             $modal.addClass('show');
             $('body').css('overflow', 'hidden');
         }
@@ -211,7 +224,7 @@ $(document).ready(function() {
         const today = new Date().toISOString().split('T')[0];
         $dateField.val(today);
         
-        $modalTitleText.text("Registrar Incidencia NOC");
+        $modalTitleText.text("Registrar Nueva Tarea");
         $('.form-control').removeClass('invalid');
         $('.form-error').hide();
         
@@ -319,22 +332,6 @@ $(document).ready(function() {
             closeModalWindow();
         }
     });
-
-    /* ==========================================================================
-       7. INICIALIZACIÓN
-       ========================================================================== */
-    // Limpiar localStorage anterior si contenía mock data financiera
-    try {
-        const stored = localStorage.getItem('kanban_tasks');
-        if (stored) {
-            const parsed = JSON.parse(stored);
-            if (parsed.length > 0 && parsed[0].title === "Maquetar Layout General") {
-                localStorage.removeItem('kanban_tasks');
-                tasks = [...sampleTasks];
-                localStorage.setItem('kanban_tasks', JSON.stringify(tasks));
-            }
-        }
-    } catch(e) {}
 
     renderBoard();
 

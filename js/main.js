@@ -22,32 +22,8 @@ $(document).ready(function() {
     /* ==========================================================================
        2. TEMA DE COLOR (CLARO / OSCURO) CON LOCALSTORAGE
        ========================================================================== */
-    // Comprobar el tema guardado anteriormente o preferencia del sistema
-    const currentTheme = localStorage.getItem('theme') || 'dark';
-    
-    if (currentTheme === 'light') {
-        $body.removeClass('dark-theme').addClass('light-theme');
-    } else {
-        $body.removeClass('light-theme').addClass('dark-theme');
-    }
-    
-    // Controlador de click para el botón de tema
-    $themeToggle.on('click', function() {
-        if ($body.hasClass('dark-theme')) {
-            $body.removeClass('dark-theme').addClass('light-theme');
-            localStorage.setItem('theme', 'light');
-        } else {
-            $body.removeClass('light-theme').addClass('dark-theme');
-            localStorage.setItem('theme', 'dark');
-        }
-        
-        // Micro-animación de rotación al hacer toggle
-        const $icon = $(this).find('i:visible');
-        $icon.css({ transform: 'rotate(360deg)', transition: 'transform 0.4s ease' });
-        setTimeout(() => {
-            $icon.css({ transform: 'none' });
-        }, 400);
-    });
+    // Forzar el tema oscuro por defecto y eliminar la alternancia
+    $body.removeClass('light-theme').addClass('dark-theme');
 
     /* ==========================================================================
        3. RESPONSIVE MENU (MOBILE DRAWER)
@@ -93,7 +69,7 @@ $(document).ready(function() {
             $header.css({
                 height: '70px',
                 boxShadow: 'var(--shadow-md)',
-                backgroundColor: $body.hasClass('light-theme') ? 'rgba(255, 255, 255, 0.9)' : 'rgba(11, 15, 25, 0.9)'
+                backgroundColor: 'rgba(11, 15, 25, 0.9)'
             });
         } else {
             $header.css({

@@ -3,22 +3,22 @@
    ========================================================================== */
 
 :root {
-    --bg-primary: #f8fafc;
-    --bg-secondary: #ffffff;
-    --bg-tertiary: #f1f5f9;
-    --border-color: rgba(15, 23, 42, 0.08);
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --border-color: rgba(255, 255, 255, 0.08);
     
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #94a3b8;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #64748b;
     
-    --accent: #4f46e5; /* Indigo */
-    --accent-hover: #3730a3;
-    --accent-light: #e0e7ff;
+    --accent: #f59e0b; /* Amber/Orange for PetShop */
+    --accent-hover: #d97706;
+    --accent-light: rgba(245, 158, 11, 0.15);
     
     --green: #10b981;
     --red: #ef4444;
-    --warning: #f59e0b;
+    --warning: #fbbf24;
     
     --font-heading: 'Outfit', 'Inter', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -29,9 +29,9 @@
     --radius-full: 9999px;
     
     --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.05);
-    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
     
     --header-height: 80px;
     --max-width: 1200px;
@@ -91,7 +91,7 @@ button, input, select {
     left: 0;
     width: 100%;
     height: var(--header-height);
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(30, 41, 59, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
